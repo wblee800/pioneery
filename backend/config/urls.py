@@ -21,4 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('board/', include('backend.board.urls')),  # board 앱의 URL 연결
+    path('board/api/', include('backend.board_api.urls')),  # board 앱의 URL 연결
 ]

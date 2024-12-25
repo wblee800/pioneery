@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "backend.board", # 게시판 앱
+    "backend.board_api", # 게시판 API 앱
 ]
 
 MIDDLEWARE = [
