@@ -5,6 +5,7 @@
 .
 ㄴ backend # django
   ㄴ board # 게시판앱
+  ㄴ board_api # 게시판 API앱
 ㄴ frontend # react
 ```
 
@@ -13,7 +14,8 @@
 python manage.py runserver
 ```
 
-접속: http://127.0.0.1:8000/board
+게시판: http://127.0.0.1:8000/board
+게시판API: http://127.0.0.1:8000/board/api
 
 ## 초기 설정 방법
 
