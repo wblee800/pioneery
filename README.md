@@ -3,11 +3,12 @@
 ## 프로젝트 구조
 ```
 .
-ㄴ backend # django
-  ㄴ board # 게시판앱
-  ㄴ board_api # 게시판 API앱
-ㄴ frontend # react
-  ㄴ build/static/ # react build 파일
+├── backend        # Django 백엔드 프로젝트 폴더
+│   ├── board      # 게시판 앱
+│   └── board_api  # 게시판 API 앱
+└── frontend       # React 프론트엔드 프로젝트 폴더
+    └── build
+        └── static # React 빌드된 정적 파일
 ```
 
 ## 로컬 실행 방법
