@@ -7,6 +7,7 @@
   ㄴ board # 게시판앱
   ㄴ board_api # 게시판 API앱
 ㄴ frontend # react
+  ㄴ build/static/ # react build 파일
 ```
 
 ## 로컬 실행 방법
