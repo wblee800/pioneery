@@ -17,9 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('board/', include('backend.board.urls')),  # board 앱의 URL 연결
     path('board/api/', include('backend.board_api.urls')),  # board 앱의 URL 연결
+    path('', TemplateView.as_view(template_name='index.html')),
 ]
