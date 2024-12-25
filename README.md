@@ -15,6 +15,7 @@
 python manage.py runserver
 ```
 
+Home: http://127.0.0.1:8000/
 게시판: http://127.0.0.1:8000/board
 게시판API: http://127.0.0.1:8000/board/api
 
