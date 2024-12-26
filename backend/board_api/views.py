@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import Post
+from .serializers import PostSerializer
 
-from django.http import HttpResponse
-
-def index(request):
-    return HttpResponse("Welcome to the Board API!")
+class PostViewSet(ModelViewSet):
+    queryset = Post.objects.all().order_by('-created_at')  # 작성일 내림차순 정렬
+    serializer_class = PostSerializer
