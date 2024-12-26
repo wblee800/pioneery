@@ -1,0 +1,20 @@
+### GET list
+GET http://127.0.0.1:8000/api/board/posts/
+
+### GET detail
+GET http://127.0.0.1:8000/api/board/posts/1
+
+### POST
+POST http://127.0.0.1:8000/api/board/posts/
+Content-Type: application/json
+
+{
+    "title": "테스트 글",
+    "content": "테스트 내용"
+}
+
+### DELETE
+DELETE http://127.0.0.1:8000/api/board/posts/5/
+
+### OPTIONS
+OPTIONS http://127.0.0.1:8000/api/board/posts/
