@@ -1,6 +1,9 @@
 ### GET list
 GET http://127.0.0.1:8000/api/board/posts/
 
+### GET list page 2
+http://127.0.0.1:8000/api/board/posts/?page=2
+
 ### GET detail
 GET http://127.0.0.1:8000/api/board/posts/1
 
