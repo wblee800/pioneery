@@ -4,5 +4,7 @@ import PostForm from "./PostForm"
 import PostList from "./PostList"
 
 const App = () => {
-  <h1>This is the App.jsx</h1>
+  return <h1>This is the App.jsx</h1>;
 };
+
+export default App;
