@@ -32,6 +32,15 @@ module.exports = {
     static: './dist', // 정적 파일 제공 경로
     hot: true, // 핫 리로딩 활성화
     port: 3000, // 개발 서버 포트 설정
+    proxy: [
+      {
+        context: ['/api'],
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        timeout: 5000, // 요청 대기 시간 (ms)
+        proxyTimeout: 5000, // 프록시 대기 시간 (ms)
+      }
+    ],
   },
   mode: 'development', // 개발 모드
 };

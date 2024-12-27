@@ -17,5 +17,6 @@
   "scripts": {
     "start": "webpack serve",
     "build": "webpack --mode production"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }
