@@ -28,4 +28,11 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
+### migration 적용
+모델 변경사항을 감지하고 데이터베이스에 적용할 수 있는 마이그레이션 파일 생성 후 마이그레이션 파일을 실제 데이터베이스에 적용
+```shell
+python manage.py makemigrations
+python manage.py migrate
+```
+
 ### TODO DB 설정 방법
