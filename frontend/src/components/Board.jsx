@@ -8,6 +8,24 @@ const PostContainer = styled.div`
   padding: 10px;
 `
 
+const PageContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+// Prevent `active` from being passed to the DOM
+const PageButton = styled.button.withConfig({
+  shouldForwardProp: (prop) => prop !== "active", // Exclude `active` from DOM
+})`
+  padding: 5px 10px;
+  background-color: ${(props) => (props.active ? "#337ab7" : "gray")};
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+
 const API_BASE_URL = "http://127.0.0.1:8000/api/board/posts/";
 
 const Board = () => {
@@ -15,13 +33,36 @@ const Board = () => {
   const [formData, setFormData] = useState({ title: '', content: '' }); // Writing new post
   const [editMode, setEditMode] = useState(null); // An ID of a post while editing
   const [editData, setEditData] = useState({ title: '', content: '' }); // Data for editing
+  const [totalPages, setTotalPages] = useState(0); // Total number of pages
+  const [currentPage, setCurrentPage] = useState(1); // Current active page
+
+  // Fetches the next page of posts for pagination
+  const fetchNextPage = async () => {
+    if (!nextPage) return; // Exit if there's no next page
+
+    try {
+      const response = await axios.get(nextPage);
+      const data = response.data;
+
+      // Append new posts to the existing list
+      setPosts([...posts, ...data.results]);
+      setNextPage(data.next); // Update the next page URL
+    } catch (error) {
+      console.error("Error fetching next page:", error);
+    }
+  };
 
   // API call: Read all posts
-  const fetchPosts = async () => {
+  const fetchPosts = async (page = 1) => {
     try {
-      const response = await axios.get(API_BASE_URL);
+      const response = await axios.get(API_BASE_URL, {
+        params: { page }, // Send the page number as a query parameter
+      });
+
       const data = response.data;
-      setPosts(data.results);
+      setPosts(data.results); // Extract posts from the 'results' field
+      setTotalPages(Math.ceil(data.count / 10)); // Calculate total pages (assuming page size is 10)
+      setCurrentPage(page); // Update the current page
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -92,6 +133,7 @@ const Board = () => {
     <div>
       <h1>CRUD Board</h1>
 
+      {/* Create Section */}
       <div>
         <div>
           <input
@@ -99,7 +141,9 @@ const Board = () => {
             name="title"
             placeholder="Title"
             value={formData.title}
-            onChange={handleInputChange} />
+            onChange={(e) =>
+              setFormData({ ...formData, title: e.target.value })
+            } />
         </div>
 
         <div>
@@ -107,7 +151,9 @@ const Board = () => {
             name="content"
             placeholder="Content"
             value={formData.content}
-            onChange={handleInputChange}
+            onChange={(e) =>
+              setFormData({ ...formData, content: e.target.value })
+            }
           ></textarea>
         </div>
 
@@ -153,6 +199,22 @@ const Board = () => {
         ) : (
           <p>No posts available.</p>
         )}
+      </div>
+
+      {/* Pagination Section*/}
+      <div>
+        <h3>Pages</h3>
+        <PageContainer>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <PageButton
+              key={index + 1}
+              onClick={() => fetchPosts(index + 1)}
+              active={currentPage === index + 1} // Pass active to styled-components
+            >
+              {index + 1}
+            </PageButton>
+          ))}
+        </PageContainer>
       </div>
     </div >
   );
