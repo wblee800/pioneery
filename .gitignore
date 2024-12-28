@@ -3,3 +3,4 @@ db.sqlite3
 .idea
 __pycache__
 install-pyenv-win.ps1
+node_modules
