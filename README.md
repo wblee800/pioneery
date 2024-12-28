@@ -12,6 +12,8 @@
 ```
 
 ## 로컬 실행 방법
+
+### backend
 ```shell
 python manage.py runserver
 ```
@@ -20,12 +22,32 @@ python manage.py runserver
 * 게시판: http://127.0.0.1:8000/board
 * 게시판API: http://127.0.0.1:8000/board/api
 
+### frontend
+```shell
+cd frontend
+npm install
+npm start
+```
+
 ## 초기 설정 방법
+
+### python 설치
+> /.python-version 파일에 명시된 버전으로 설치
+> 3.11.9 버전으로 설치 예시
+
+```shell
+pyenv install 3.11.9
+```
 
 ### python 가상환경 설정
 ```shell
 python -m venv .venv
 source .venv/bin/activate
+```
+
+### 의존성 설치
+```shell
+pip install -r requirements.txt
 ```
 
 ### migration 적용

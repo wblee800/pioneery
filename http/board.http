@@ -1,3 +1,9 @@
+# frontend 실행
+### GET list
+GET http://127.0.0.1:3000/api/board/posts/
+
+
+# backend 직접 실행
 ### GET list
 GET http://127.0.0.1:8000/api/board/posts/
 
