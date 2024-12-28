@@ -12,6 +12,8 @@
 ```
 
 ## 로컬 실행 방법
+
+### backend
 ```shell
 python manage.py runserver
 ```
@@ -19,6 +21,13 @@ python manage.py runserver
 * Home: http://127.0.0.1:8000/
 * 게시판: http://127.0.0.1:8000/board
 * 게시판API: http://127.0.0.1:8000/board/api
+
+### frontend
+```shell
+cd frontend
+npm install
+npm start
+```
 
 ## 초기 설정 방법
 
