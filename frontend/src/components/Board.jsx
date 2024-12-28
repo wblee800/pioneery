@@ -20,7 +20,8 @@ const Board = () => {
   const fetchPosts = async () => {
     try {
       const response = await axios.get(API_BASE_URL);
-      setPosts(response.data);
+      const data = response.data;
+      setPosts(data.results);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
