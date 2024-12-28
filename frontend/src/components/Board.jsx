@@ -32,7 +32,7 @@ const Board = () => {
     if (formData.title && formData.content) {
       try {
         const response = await axios.post(API_BASE_URL, formData);
-        setPosts([...posts, response.data]);
+        setPosts([response.data, ...posts]);
         setFormData({ title: "", content: "" });
       } catch (error) {
         console.error("Error creating post:", error);
