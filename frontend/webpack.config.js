@@ -35,7 +35,7 @@ module.exports = {
     proxy: [
       {
         context: ['/api'],
-        target: 'http://localhost:8000',
+        target: 'http://127.0.0.1:8000',
         changeOrigin: true,
         timeout: 5000, // 요청 대기 시간 (ms)
         proxyTimeout: 5000, // 프록시 대기 시간 (ms)
