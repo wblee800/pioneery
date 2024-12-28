@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const PostContainer = styled.div`
+  border: 1px solid black;
+  margin: 10px 0;
+  padding: 10px;
+`
 
 const Board = () => {
   const [posts, setPosts] = useState([]); // List of posts
@@ -77,7 +84,7 @@ const Board = () => {
           posts.map((post) =>
             editMode === post.id ? (
               // Edit Mode
-              <div key={post.id} style={{ border: '1px solid black', padding: '10px', margin: '10px 0' }}>
+              <PostContainer key={post.id}>
                 <div>
                   <input
                     type="text"
@@ -95,22 +102,22 @@ const Board = () => {
                 </div>
                 <button onClick={handleSaveEdit}>Save</button>
                 <button onClick={() => setEditMode(null)}>Cancel</button>
-              </div>
+              </PostContainer>
             ) : (
               // Read Mode
-              <div key={post.id} style={{ border: '1px solid black', padding: '10px', margin: '10px 0' }}>
+              <PostContainer key={post.id}>
                 <h3>{post.title}</h3>
                 <p>{post.content}</p>
                 <button onClick={() => handleEditPost(post)}>Edit</button>
                 <button onClick={() => handleDeletePost(post.id)}>Delete</button>
-              </div>
+              </PostContainer>
             )
           )
         ) : (
           <p>No posts available.</p>
         )}
       </div>
-    </div>
+    </div >
   );
 };
 
