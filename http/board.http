@@ -8,10 +8,10 @@ GET http://127.0.0.1:3000/api/board/posts/
 GET http://127.0.0.1:8000/api/board/posts/
 
 ### GET list page 2
-http://127.0.0.1:8000/api/board/posts/?page=2
+GET http://127.0.0.1:8000/api/board/posts/?page=2
 
 ### GET detail
-GET http://127.0.0.1:8000/api/board/posts/1
+GET http://127.0.0.1:8000/api/board/posts/28
 
 ### POST
 POST http://127.0.0.1:8000/api/board/posts/
@@ -21,6 +21,16 @@ Content-Type: application/json
     "title": "테스트 글",
     "content": "테스트 내용"
 }
+
+### PUT
+PUT http://127.0.0.1:8000/api/board/posts/28/
+Content-Type: application/json
+
+{
+    "title": "테스트 글 수정2222",
+    "content": "테스트 내용 수정222"
+}
+
 
 ### DELETE
 DELETE http://127.0.0.1:8000/api/board/posts/5/
