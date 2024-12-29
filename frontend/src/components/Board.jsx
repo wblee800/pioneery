@@ -26,7 +26,7 @@ const PageButton = styled.button.withConfig({
 `;
 
 
-const API_BASE_URL = "http://127.0.0.1:8000/api/board/posts/";
+const API_BASE_URL = "/api/board/posts/";
 
 const Board = () => {
   const [posts, setPosts] = useState([]); // List of posts
