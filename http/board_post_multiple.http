@@ -1,0 +1,21 @@
+### POST Multiple
+< {%
+    let testPosts = [
+        {"title": "테스트 글1", "content": "테스트 내용1"},
+        {"title": "테스트 글2", "content": "테스트 내용2"},
+        {"title": "테스트 글3", "content": "테스트 내용3"},
+    ];
+    request.variables.set("posts", testPosts)
+%}
+
+POST http://127.0.0.1:8000/api/board/posts/
+Content-Type: application/json
+
+{
+  "title": "{{$.posts..title}}",
+  "content": "{{$.posts..content}}"
+}
+
+> {%
+  let current = request.variables.get("posts")[request.iteration()]
+%}
