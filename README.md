@@ -22,6 +22,16 @@ python manage.py runserver
 * 게시판: http://127.0.0.1:8000/board
 * 게시판API: http://127.0.0.1:8000/board/api
 
+#### tavily 설정
+```
+GET http://127.0.0.1:8000/api/search/?q=캐나다이민
+```
+단순한 tavily 검색 테스트 API
+
+https://tavily.com/ 에서 apikey 발급 받고
+
+`/backend/.env_local.example` 참고해서 `/backend/.env_local` 파일 만들어서 apikey 입력해서 테스트 해볼 수 있음
+
 ### frontend
 ```shell
 cd frontend
