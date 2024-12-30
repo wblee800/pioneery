@@ -1,0 +1,2 @@
+### search
+GET http://127.0.0.1:8000/api/search/?q=캐나다 이민

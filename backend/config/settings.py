@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,8 +38,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     "backend.board", # 게시판 앱
     "backend.board_api", # 게시판 API 앱
+    "backend.search_api",  # 검색 API 앱 추가
+
     "rest_framework", # django rest framework
 ]
 
@@ -132,3 +136,16 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,  # 페이지당 반환할 항목 수
 }
+
+
+# .env_local 파일 로드
+env_path = Path(__file__).resolve().parent.parent / '.env_local'
+load_dotenv(env_path)
+
+# Tavily API 설정
+TAVILY_API_KEY = os.getenv('TAVILY_API_KEY')
+
+# API 키가 없을 경우 경고
+if not TAVILY_API_KEY:
+    import warnings
+    warnings.warn("TAVILY_API_KEY is not set in .env_local file", RuntimeWarning)
