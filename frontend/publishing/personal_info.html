@@ -120,8 +120,12 @@
 
             if (currentStep.id === 'step2') {
                 const jobInput = document.getElementById('job');
-                if (jobInput.value === "" | jobInput.value < 0) {
+                const jobEtcInput = document.getElementById('etc_job');
+                if (jobInput.value === "") {
                     alert("Job experience cannot be empty.");
+                    return;
+                } else if (jobInput.value === "etc" && jobEtcInput.value === "") {
+                    alert("If you choose 'etc', please type your job.");
                     return;
                 }
             }
@@ -130,11 +134,10 @@
                 const languageInput = document.getElementById('language');
                 const scoreInput = document.getElementById('score');
                 if (languageInput.value === "") {
-                    alert("If you don't have a language certificate, please select None.");
+                    alert("If you don't have a language certificate, please select 'None'.");
                     return;
                 }
-
-                if (languageInput.value != "" && scoreInput.value === "") {
+                else if (languageInput.value !== "none" && scoreInput.value === "") {
                     alert("Please type your score.");
                     return;
                 }
@@ -171,6 +174,17 @@
             }
         }
 
+        function toggleJobInput() {
+            var jobSelect = document.getElementById('job');
+            var jobInput = document.getElementById('jobInput');
+            if (jobSelect.value === 'etc') {
+                jobInput.style.display = 'block';
+            } else {
+                jobInput.style.display = 'none';
+                document.getElementById('etc_job').value = ''; // Initialize a score field
+            }
+        }
+
         function collectDataAndSubmit(event) {
             event.preventDefault();
 
@@ -204,8 +218,20 @@
                 </div>
 
                 <div class="step" id="step2">
-                    <h1>What is your job or work experience?</h1>
-                    <input type="text" id="job" name="job" placeholder="e.g. 3" required>
+                    <h1>What is your work experience?</h1>
+                    <select id="job" name="job" onchange="toggleJobInput()" required>
+                        <option value="" disabled selected>Select your job</option>
+                        <option value="software_engineer">Software Engineer</option>
+                        <option value="web_frontend_engineer">Web Frontend Engineer</option>
+                        <option value="web_backend_engineer">Web Backend Engineer</option>
+                        <option value="gameplay_programmer">Gameplay Programmer</option>
+                        <option value="game_engine_programeer">Game Engine Programmer</option>
+                        <option value="etc">etc</option>
+                    </select>
+
+                    <div id="jobInput" style="display:none;">
+                        <input type="text" id="etc_job" name="etc_job" placeholder="e.g. UI/UX Designer">
+                    </div>
                     <button type="button" onclick="nextStep(3)"><b>Next</b></button>
                 </div>
 
