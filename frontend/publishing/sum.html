@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messages</title>
+    <title>Pioneer</title>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -118,7 +118,66 @@
         .compose button:hover {
             background: #4a56d2;
         }
+
+        .summary {
+            padding: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+            white-space: pre-wrap;
+        }
     </style>
+    <script>
+        function generateCharacterByCharacterSummary() {
+            const params = new URLSearchParams(window.location.search);
+            const userData = Object.fromEntries(params.entries());
+
+            const summaryElement = document.getElementById('summary-content');
+            summaryElement.innerText = '';
+
+            const insights = [];
+
+            if (userData.age) {
+                insights.push(`Based on your age (${userData.age}), there are many tailored immigration and job programs.`);
+            }
+
+            if (userData.job) {
+                insights.push(`Your job as a ${userData.job} has great demand in both Canada and the US.`);
+            }
+
+            if (userData.language && userData.language !== 'none') {
+                insights.push(`Having a ${userData.language} certificate can boost your chances in skilled worker programs.`);
+            }
+
+            if (userData.nationality) {
+                insights.push(`As a citizen of ${userData.nationality}, there are specific agreements and opportunities.`);
+            }
+
+            if (userData.marital) {
+                insights.push(`Your marital status (${userData.marital}) may influence visa or residency applications.`);
+            }
+
+            if (userData.linkedin || userData.github) {
+                insights.push('Having profiles on LinkedIn or GitHub showcases your professional presence.');
+            }
+
+            // Combine elements of an array into a single string with '\n'
+            let fullText = insights.join('\n\n');
+            let currentIndex = 0;
+
+            const interval = setInterval(() => {
+                if (currentIndex < fullText.length) {
+                    summaryElement.innerText += fullText[currentIndex]; // Add and output one letter at a time
+                    currentIndex++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 20); // Adjust speed as needed
+        }
+
+        generateCharacterByCharacterSummary();
+    </script>
 </head>
 
 <body>
@@ -131,26 +190,12 @@
     </div>
 
     <div class="main-content">
-        <div class="header">Messages</div>
-
-        <div class="messages-container">
-            <div class="message">
-                <h3>System</h3>
-                <p>Welcome to Pioneer! Start exploring your opportunities.</p>
-            </div>
-            <div class="message">
-                <h3>User</h3>
-                <p>What programs are suitable for my skills?</p>
-            </div>
-            <div class="message">
-                <h3>System</h3>
-                <p>Based on your profile, you may consider Express Entry in Canada or H1-B in the US.</p>
-            </div>
+        <div class="header">Personalized Summary</div>
+        <div class="summary" id="summary-content">
+            Connecting to retrieve your personalized insights...
         </div>
-
         <div class="compose">
-            <input type="text" placeholder="Type your message...">
-            <button>Send</button>
+            <button onclick="generateCharacterByCharacterSummary()">Reload Insights</button>
         </div>
     </div>
 </body>
