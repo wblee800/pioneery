@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Info</title>
+    <title>Step-by-Step Form</title>
     <style>
         body {
-            /* font-family: 'Inter', sans-serif; */
             font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -15,101 +14,270 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(120deg, rgb(227, 232, 250), rgb(198, 234, 245));
-            animation: gradientAnimation 15s ease infinite;
-            background-size: 400% 400%;
-        }
-
-        @keyframes gradientAnimation {
-            0% {
-                background: linear-gradient(120deg, rgb(227, 232, 250), rgb(198, 234, 245));
-                background-size: 400% 400%;
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background: linear-gradient(120deg, rgb(198, 234, 245), rgb(227, 232, 250));
-                background-size: 400% 400%;
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background: linear-gradient(120deg, rgb(227, 232, 250), rgb(198, 234, 245));
-                background-size: 400% 400%;
-                background-position: 0% 50%;
-            }
+            background: linear-gradient(135deg, #0D1117, #161B22);
+            color: #ffffff;
         }
 
         .container {
             width: 90%;
-            max-width: 600px;
-            background: white;
-            padding: 20px;
+            max-width: 500px;
+            background: #161b22;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
 
         h1 {
             font-size: 1.8rem;
-            color: #5C67F2;
             margin-bottom: 20px;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
         }
 
         input,
-        select,
-        button {
+        select {
+            font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+            display: block;
+            margin: 0 auto 20px auto;
             padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            /* Optional: Restricts maximum width for better layout */
             font-size: 1rem;
-            border: 1px solid #D9E1EC;
+            border: 1px solid #30363d;
             border-radius: 8px;
         }
 
         button {
             background: linear-gradient(90deg, #7F5AF0, #2CB1FF);
+            font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
             color: white;
             border: none;
             cursor: pointer;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
+            transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(88, 166, 255, 0.5);
         }
+
+        .warning-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            background: #161b22;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+            font-size: 0.9rem;
+            z-index: 1000;
+        }
+
+        .warning-icon {
+            background: linear-gradient(135deg, #7F5AF0, #2CB1FF);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .warning-icon svg {
+            fill: white;
+            width: 18px;
+            height: 18px;
+        }
     </style>
+    <script>
+        function nextStep(stepNumber) {
+            const currentStep = document.querySelector('.step.active');
+            const nextStep = document.getElementById(`step${stepNumber}`);
+
+            if (currentStep.id === 'step1') {
+                const ageInput = document.getElementById('age');
+                if (ageInput.value === "" || ageInput.value < 0) {
+                    alert("Age cannot be empty or negative.");
+                    return;
+                }
+            }
+
+            if (currentStep.id === 'step2') {
+                const jobInput = document.getElementById('job');
+                if (jobInput.value === "" | jobInput.value < 0) {
+                    alert("Job experience cannot be empty.");
+                    return;
+                }
+            }
+
+            if (currentStep.id === 'step3') {
+                const languageInput = document.getElementById('language');
+                const scoreInput = document.getElementById('score');
+                if (languageInput.value === "") {
+                    alert("If you don't have a language certificate, please select None.");
+                    return;
+                }
+
+                if (languageInput.value != "" && scoreInput.value === "") {
+                    alert("Please type your score.");
+                    return;
+                }
+            }
+
+            if (currentStep.id === 'step4') {
+                const nationality = document.getElementById('nationality');
+                if (nationality.value === "") {
+                    alert("Nationality cannot be empty.");
+                    return;
+                }
+            }
+
+            if (currentStep.id === 'step5') {
+                const maritalInput = document.getElementById('marital');
+                if (maritalInput.value === "") {
+                    alert("Marital status cannot be empty.");
+                    return;
+                }
+            }
+
+            if (currentStep) currentStep.classList.remove('active');
+            if (nextStep) nextStep.classList.add('active');
+        }
+
+        function toggleScoreInput() {
+            var languageSelect = document.getElementById('language');
+            var scoreInput = document.getElementById('scoreInput');
+            if (languageSelect.value === 'none') {
+                scoreInput.style.display = 'none';
+                document.getElementById('score').value = ''; // Initialize a score field
+            } else {
+                scoreInput.style.display = 'block';
+            }
+        }
+
+        function collectDataAndSubmit(event) {
+            event.preventDefault();
+
+            const formData = {
+                age: document.getElementById('age').value,
+                job: document.getElementById('job').value,
+                language: document.getElementById('language').value,
+                nationality: document.getElementById('nationality').value,
+                marital: document.getElementById('marital').value,
+                linkedin: document.getElementById('linkedin').value,
+                github: document.getElementById('github').value,
+            };
+
+            const queryString = Object.keys(formData)
+                .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(formData[key])}`)
+                .join('&');
+
+            window.location.href = `sum.html?${queryString}`;
+        }
+    </script>
 </head>
 
 <body>
     <div class="container">
-        <h1>Personal Information</h1>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <form id="stepForm" onsubmit="collectDataAndSubmit(event)">
+            <div id="steps">
+                <div class="step active" id="step1">
+                    <h1>What is your age?</h1>
+                    <input type="number" id="age" name="age" min=0 required>
+                    <button type="button" onclick="nextStep(2)"><b>Next</b></button>
+                </div>
 
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required>
+                <div class="step" id="step2">
+                    <h1>What is your job or work experience?</h1>
+                    <input type="text" id="job" name="job" placeholder="e.g. 3" required>
+                    <button type="button" onclick="nextStep(3)"><b>Next</b></button>
+                </div>
 
-            <label for="country">Country:</label>
-            <select id="country" name="country" required>
-                <option value="" disabled selected>Select your country</option>
-                <option value="Canada">Canada</option>
-                <option value="USA">USA</option>
-                <option value="South Korea">South Korea</option>
-            </select>
+                <div class="step" id="step3">
+                    <h1>Do you have a language certificate?</h1>
+                    <select id="language" name="language" onchange="toggleScoreInput()" required>
+                        <option value="" disabled selected>Select your certificate</option>
+                        <option value="none">None</option>
+                        <option value="toefl">TOEFL</option>
+                        <option value="ielts">IELTS</option>
+                        <option value="duolingo">Duolingo</option>
+                        <option value="celpip">CELPIP</option>
+                        <option value="tcf">TCF</option>
+                        <option value="tef">TEF</option>
+                    </select>
 
-            <button type="submit"><b>Submit</b></button>
+                    <div id="scoreInput" style="display:none;">
+                        <input type="text" id="score" name="score" placeholder="e.g. IELTS-7.0, TOEFL-88" required>
+                    </div>
+                    <button type="button" onclick="nextStep(4)"><b>Next</b></button>
+                </div>
+
+                <div class="step" id="step4">
+                    <h1>What is your nationality?</h1>
+                    <select id="nationality" name="nationality" required>
+                        <option value="" disabled selected>Select your nationality</option>
+                        <option value="south_korea">South Korea</option>
+                        <option value="japan">Japan</option>
+                        <option value="china">China</option>
+                        <option value="canada">Canada</option>
+                        <option value="us">The US</option>
+                        <option value="mexico">Mexico</option>
+                    </select>
+                    <button type="button" onclick="nextStep(5)"><b>Next</b></button>
+                </div>
+
+                <div class="step" id="step5">
+                    <h1>What is your marital status?</h1>
+                    <select id="marital" name="marital" required>
+                        <option value="" disabled selected>Select your marital status</option>
+                        <option value="single">Single</option>
+                        <option value="marriage">Marriage</option>
+                    </select>
+                    <button type="button" onclick="nextStep(6)"><b>Next</b></button>
+                </div>
+
+                <div class="step" id="step6">
+                    <h1>Provide your LinkedIn profile URL:</h1>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="optional">
+                    <button type="button" onclick="nextStep(7)"><b>Next</b></button>
+                </div>
+
+                <div class="step" id="step7">
+                    <h1>Provide your GitHub profile URL:</h1>
+                    <input type="url" id="github" name="github" placeholder="optional">
+                    <button type="submit"><b>Submit</b></button>
+                </div>
+            </div>
         </form>
+    </div>
+
+    <div class="warning-message">
+        <div class="warning-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-.99-13h2v7h-2zm0 9h2v2h-2z" />
+            </svg>
+        </div>
+        <div>
+            <div><strong>Do not leave the browser!</strong></div>
+            <div style="color: rgb(255, 255, 255, 0.5);">If you leave the browser, the question will restart.</div>
+        </div>
     </div>
 </body>
 
