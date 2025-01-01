@@ -9,7 +9,7 @@
     request.variables.set("posts", testPosts)
 %}
 
-POST http://127.0.0.1:8001/api/board/posts/
+POST http://127.0.0.1:8002/api/board/posts/
 Content-Type: application/json
 
 {
