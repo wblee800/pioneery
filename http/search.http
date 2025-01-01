@@ -1,2 +1,9 @@
 ### search
 GET http://127.0.0.1:8002/api/search/?q=캐나다 이민
+
+### ai search
+GET http://127.0.0.1:8002/api/search/ai/?q=캐나다
+
+### ai search stream
+GET http://127.0.0.1:8002/api/search/ai/?q=캐나다&stream=true
+

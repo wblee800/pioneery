@@ -149,3 +149,13 @@ TAVILY_API_KEY = os.getenv('TAVILY_API_KEY')
 if not TAVILY_API_KEY:
     import warnings
     warnings.warn("TAVILY_API_KEY is not set in .env_local file", RuntimeWarning)
+
+# OpenAI API 설정
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_BASE_URL = os.getenv('OPENAI_BASE_URL') or "https://api.openai.com/v1"
+OPENAI_LLM_MODEL = os.getenv('OPENAI_LLM_MODEL') or "gpt-4o-mini"
+
+# API 키가 없을 경우 경고
+if not OPENAI_API_KEY:
+    import warnings
+    warnings.warn("OPENAI_API_KEY is not set in .env_local file", RuntimeWarning)
