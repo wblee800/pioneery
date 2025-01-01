@@ -1,9 +1,78 @@
 ### search
 GET http://127.0.0.1:8002/api/search/?q=캐나다 이민
 
+```response example
+{
+  "articles": [
+    {
+      "url": "https://hanmaumimmigration.ca/",
+      "title": "한마음 캐나다: 캐나다 이민, 미국 이민 전문 컨설팅",
+      "content": "한마음 캐나다는 캐나다, 미국 전지역의 방문, 유학, 취업 등 임시체류부터 영주권에 이르는 전문적인 이민 컨설팅을 제공하는 이주공사입니다. 캐나다이민, 미국이민",
+      "score": 0.629889,
+      "raw_content": null
+    },
+    {
+      "url": "https://mex.mofa.go.kr/ca-ko/brd/m_5369/view.do?seq=611541&srchFr=&srchTo=&srchWord=&srchTp=&multi_itm_seq=0&itm_seq_1=0&itm_seq_2=0&company_cd=&company_nm=",
+      "title": "이민정보/뉴스 | 주캐나다 대한민국 대사관 - 외교부",
+      "content": "캐나다이민정보 · 1. 기본원칙. ㅇ 인구증가율 감소에 따른 인구정책적 견지에서의 이민수용. ㅇ 사회적 또는 인도적 견지에서의 이민 수용. ㅇ 캐나다 국내시장의 적정규모",
+      "score": 0.5973971,
+      "raw_content": null
+    },
+    {
+      "url": "https://www.bbc.com/korean/articles/c24530l8yl2o",
+      "title": "'영주권자 감축'... 캐나다가 이민 축소에 나선 이유는? - BBC",
+      "content": "한때 '이민 천국'이라 불리던 캐나다가 최근 영주권 수용 인원을 21% 줄이는 등 역대 가장 강력한 이민 축소 계획을 발표했다.",
+      "score": 0.5942929,
+      "raw_content": null
+    },
+    {
+      "url": "https://spconsulting.ca/express-entry/",
+      "title": "Express Entry 시스템을 통해서 6개월안에 캐나다이민 완료",
+      "content": "Express Entry(EE)는 2015년 1월부터 도입된 캐나다 연방 정부의 온라인 이민 수속 시스템으로, 나이, 경력, 학력, 영어실력, 적응력, LMIA 잡오퍼 또는 주정부 노미니",
+      "score": 0.59344494,
+      "raw_content": null
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=t55nEFYNzQc",
+      "title": "2025-2027 캐나다 이민 계획 발표! 캐나다 이민 문턱 상승! 영주권 더 ...",
+      "content": "캐나다이민계획 #이민준비 #캐나다이민 #캐나다뉴스 #캐나다이민계획 #이민계획 #2025캐나다 #이민트렌드 2025-2027 캐나다 이민 계획!",
+      "score": 0.48879638,
+      "raw_content": null
+    }
+  ],
+  "summary": "Recent reports indicate that Canada has announced one of its most significant immigration reduction plans, cutting the number of permanent residency spots by 21%. This decision marks a shift from Canada's previous reputation as an \"immigration paradise.\" The Express Entry system, introduced in 2015, remains a key online immigration processing system used by the Canadian federal government.",
+  "topic": "캐나다 이민"
+}
+```
+
 ### ai search
 GET http://127.0.0.1:8002/api/search/ai/?q=캐나다
+
+```response example
+{
+    "content": "캐나다에 대해 무엇을 알고 싶으세요?  더 구체적인 질문을 주시면 더욱 자세하고 도움이 되는 답변을 드릴 수 있습니다.  예를 들어, 다음과 같은 질문을 할 수 있습니다:\n\n* 캐나다의 역사에 대해 알고 싶습니다.\n* 캐나다의 주요 도시는 어디인가요?\n* 캐나다의 기후는 어떤가요?\n* 캐나다의 경제는 어떻습니까?\n* 캐나다 여행에 대한 정보를 얻고 싶습니다.\n* 캐나다의 문화는 어떻습니까?\n* 캐나다의 정치 체제는 어떻습니까?\n\n어떤 정보를 원하시는지 알려주세요!\n"
+}
+```
 
 ### ai search stream
 GET http://127.0.0.1:8002/api/search/ai/?q=캐나다&stream=true
 
+```response example
+data: {"content": "캐"}
+
+data: {"content": "나다에 대해 무엇을 알고 싶으신가요?  "}
+
+data: {"content": "더 구체적인 질문을 해주시면 더욱 정확한"}
+
+data: {"content": " 정보를 드릴 수 있습니다. 예를 들어, 캐나다의 다음과 같은 정보에 대해 질문하실 수 있습니다:\n\n* **지"}
+
+data: {"content": "리:** 캐나다의 지형, 기후, 주요 도시 등\n* **역사:** 캐나다의 역사적 사건, 원"}
+
+data: {"content": "주민 역사, 식민지 시대 등\n* **문화:** 캐나다의 문화, 언어, 음식, 예술, 축제 등\n* **정치:** 캐나다의 정치 체"}
+
+data: {"content": "제, 정당, 주요 정책 등\n* **경제:** 캐나다의 경제 구조, 주요 산업, 무역 등\n* **사회:** 캐나다의 사회 문제, 인구"}
+
+data: {"content": " 통계, 교육 시스템 등\n* **여행:** 캐나다 여행 정보, 관광 명소, 교통 등\n\n어떤 정보를 원하시는지 알려주세요.\n"}
+
+data: [DONE]
+```
