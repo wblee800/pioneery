@@ -22,15 +22,21 @@ python manage.py runserver 0.0.0.0:8002
 * 게시판: http://127.0.0.1:8002/board
 * 게시판API: http://127.0.0.1:8002/board/api
 
-#### tavily 설정
+#### backend/.env_local 설정
+`/backend/.env_local.example` 참고해서 `/backend/.env_local` 파일 만들어서 apikey 등 설정
+
+##### tavily 설정
+https://tavily.com/ 에서 apikey 발급 받고, `/backend/.env_local` 파일에 TAVILY_API_KEY 설정
+
+단순한 tavily 검색 테스트 API
 ```
 GET http://127.0.0.1:8002/api/search/?q=캐나다이민
 ```
-단순한 tavily 검색 테스트 API
 
-https://tavily.com/ 에서 apikey 발급 받고
+#### gemini 설정
 
-`/backend/.env_local.example` 참고해서 `/backend/.env_local` 파일 만들어서 apikey 입력해서 테스트 해볼 수 있음
+https://aistudio.google.com/apikey 에서 gemini apikey 발급 받고, `/backend/.env_local` 파일에 GEMINI_API_KEY 설정
+
 
 ### frontend
 ```shell
@@ -66,5 +72,3 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 ```
-
-### TODO DB 설정 방법
