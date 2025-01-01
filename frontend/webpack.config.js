@@ -31,11 +31,11 @@ module.exports = {
   devServer: {
     static: './dist', // 정적 파일 제공 경로
     hot: true, // 핫 리로딩 활성화
-    port: 3000, // 개발 서버 포트 설정
+    port: 3001, // 개발 서버 포트 설정
     proxy: [
       {
         context: ['/api'],
-        target: 'http://127.0.0.1:8000',
+        target: 'http://127.0.0.1:8001',
         changeOrigin: true,
         timeout: 5000, // 요청 대기 시간 (ms)
         proxyTimeout: 5000, // 프록시 대기 시간 (ms)

@@ -1,20 +1,20 @@
 # frontend 실행
 ### GET list
-GET http://127.0.0.1:3000/api/board/posts/
+GET http://127.0.0.1:3001/api/board/posts/
 
 
 # backend 직접 실행
 ### GET list
-GET http://127.0.0.1:8000/api/board/posts/
+GET http://127.0.0.1:8001/api/board/posts/
 
 ### GET list page 2
-GET http://127.0.0.1:8000/api/board/posts/?page=2
+GET http://127.0.0.1:8001/api/board/posts/?page=2
 
 ### GET detail
-GET http://127.0.0.1:8000/api/board/posts/28
+GET http://127.0.0.1:8001/api/board/posts/28
 
 ### POST
-POST http://127.0.0.1:8000/api/board/posts/
+POST http://127.0.0.1:8001/api/board/posts/
 Content-Type: application/json
 
 {
@@ -23,7 +23,7 @@ Content-Type: application/json
 }
 
 ### PUT
-PUT http://127.0.0.1:8000/api/board/posts/28/
+PUT http://127.0.0.1:8001/api/board/posts/28/
 Content-Type: application/json
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 
 ### DELETE
-DELETE http://127.0.0.1:8000/api/board/posts/5/
+DELETE http://127.0.0.1:8001/api/board/posts/5/
 
 ### OPTIONS
-OPTIONS http://127.0.0.1:8000/api/board/posts/
+OPTIONS http://127.0.0.1:8001/api/board/posts/

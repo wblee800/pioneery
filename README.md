@@ -15,16 +15,16 @@
 
 ### backend
 ```shell
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8001
 ```
 
-* Home: http://127.0.0.1:8000/
-* 게시판: http://127.0.0.1:8000/board
-* 게시판API: http://127.0.0.1:8000/board/api
+* Home: http://127.0.0.1:8001/
+* 게시판: http://127.0.0.1:8001/board
+* 게시판API: http://127.0.0.1:8001/board/api
 
 #### tavily 설정
 ```
-GET http://127.0.0.1:8000/api/search/?q=캐나다이민
+GET http://127.0.0.1:8001/api/search/?q=캐나다이민
 ```
 단순한 tavily 검색 테스트 API
 
