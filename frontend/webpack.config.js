@@ -31,7 +31,7 @@ module.exports = {
   devServer: {
     static: './dist', // 정적 파일 제공 경로
     hot: true, // 핫 리로딩 활성화
-    allowedHosts: ['katechackers.com', 'katechackers.junho85.pe.kr'],
+    allowedHosts: ['www.katechackers.com', 'katechackers.com', 'katechackers.junho85.pe.kr'],
     port: 3002, // 개발 서버 포트 설정
     proxy: [
       {
