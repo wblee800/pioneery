@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from "./Home"
 import Form from "./Form"
 import Sum from "./Sum"
+import ImmigrationTest from "./ImmigrationTest";
 
 const App = () => (
   <Router>
@@ -10,6 +11,7 @@ const App = () => (
       <Route path="/" element={<Home />} />
       <Route path="/Form" element={<Form />} />
       <Route path="/Sum" element={<Sum />} />
+      <Route path="/ImmigrationTest" element={<ImmigrationTest />} />
     </Routes>
   </Router>
 );
