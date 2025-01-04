@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../build/static/images/logo.png';
 
 const GlobalStyle = createGlobalStyle`
@@ -82,8 +83,9 @@ const StyledButton = styled.button.attrs({
 `
 
 const Home = () => {
+  const navigate = useNavigate();
   const goToInfo = () => {
-    window.location.href = "personal_info.html";
+    navigate('/Info');
   };
 
   return (
@@ -105,3 +107,4 @@ const Home = () => {
 };
 
 export default Home;
+
