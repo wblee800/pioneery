@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
@@ -111,8 +111,24 @@ const WarningText = styled.div`
 const Form = () => {
   const navigate = useNavigate();
   const goToSum = () => {
-    navigate('/sum', { state: formData });  // Pass formData to the Sum page
+    navigate('/ImmigrationTest', { state: formData });  // Pass formData to the Sum page
   };
+
+  // Warn the user about page refresh
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      event.preventDefault();
+      event.returnValue = 'Refreshing the page will return you to the Home page. Do you want to continue?';
+    };
+
+    // Attach the event listener
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Cleanup the event listener on unmount
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
