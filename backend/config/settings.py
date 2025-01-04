@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     "www.katechackers.com",
     "katechackers.com",
     "katechackers.junho85.pe.kr",
+    "localhost",
 ]
 
 # Application definition
