@@ -18,7 +18,7 @@
 - **LinkedIn**: https://www.linkedin.com/in/user-id
 - **GitHub**: https://www.github.com/user-id
 
-### Work Permit Visa
+### **Work Permit Visa**
 **Wonbin Lee** is **Korean** and **24 years old**. **As a **South Korean citizen**, you can **apply for a Working Holiday Visa** if you are between the ages of 18 and 35 (inclusive)**.
 
 - **Working Holiday Visa Key Features**
@@ -28,7 +28,7 @@
   - Work Restriction Period: Not specified by agreement
   - Duration of study : 6 months
 
-### NOC Code
+### **NOC Code**
 Your job title is **Web Frontend Engineer**, which is similar to **NOC 21234, an occupational code assigned by the Canadian government, depending on your company.
 
 - **NOC 21234 - Web developers and programmers include the following job responsibilities
@@ -45,7 +45,7 @@ Your job title is **Web Frontend Engineer**, which is similar to **NOC 21234, an
 	- **NOC 22220 - Computer Network and Web Technician**: Includes positions responsible for installing, maintaining, and supporting network systems and web technologies.
 - These NOC codes include jobs that perform tasks similar to those of web front-end developers. More information can be found on the official Government of Canada website.
 
-### Immigration Program by Province
+### **Immigration Program by Province**
 You have **2 years of experience** as a Web Frontend Engineer. Let me recommend an immigration program you can apply to with **NOC 21234**.
 
 Each province in Canada has different immigration programs for applicants with two years of experience as a web front-end engineer. Below is an overview of the programs that may apply to you in each province:

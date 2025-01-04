@@ -18,7 +18,7 @@
 - **LinkedIn**: https://www.linkedin.com/in/user-id
 - **GitHub**: https://www.github.com/user-id
 
-Based on your interests in **social networking and hobbies**, here are some organizations in Toronto that you might consider joining:
+ Based on **Wonbin Lee's hobbies** of **weight lifting**, **badminton**, and **kickboxing**, we found places near **Toronto, ON** for **hobbies and networking of your choice**.
 
 ### 1. [Anytime Fitness](https://www.google.com/maps/place/Anytime+Fitness/@43.6587607,-79.3620484,15z/data=!3m1!5s0x89d4cb14fe03fab9:0x5086c577a9d26236!4m10!1m2!2m1!1sfitness+in+Toronto!3m6!1s0x89d4cb36bfd59705:0x495c919ba030965a!8m2!3d43.6582696!4d-79.3497691!15sChJmaXRuZXNzIGluIFRvcm9udG9aFCISZml0bmVzcyBpbiB0b3JvbnRvkgEDZ3lt4AEA!16s%2Fg%2F11khd15pnj?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D)
 ![[Pasted image 20250103193733.png]]
@@ -52,7 +52,7 @@ Based on your interests in **social networking and hobbies**, here are some orga
 	- Thursday: 5–9 p.m.
 - Phone #: +1 4165652283
 
-**As an additional way to learn English and socialize**, we recommend **Toastmasters**, an **English club** with many clubs around the world.
+**As an additional way to learn English and socialize**, we recommend [Toastmasters International](https://www.toastmasters.org/find-a-club?q=Toronto%2C+Ontario%2C+Canada&radius=25&n=&advanced=0&latitude=43.6519&longitude=-79.3817&autocomplete=true&zoom=0), an **English club** with many clubs around the world.
 
 ### **1. Downtown Toronto Toastmasters Club**
 ![[Pasted image 20250103195227.png]]

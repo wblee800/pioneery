@@ -128,6 +128,6 @@
 - **High Match (Above 85%)**: 4 positions
 - **Moderate Match (70%–85%)**: 2 positions
 - **Skills to Learn**:
-    - Angular, Vue.js, jQuery, API integration, performance optimization, email marketing, and testing frameworks.
+    - Angular, Vue.js, jQuery, API integration, performance optimization, and testing frameworks.
 
 This provides a more complete view of your skills in relation to each position and indicates the areas you may want to focus on to improve your chances of securing a role.
