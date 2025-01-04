@@ -12,6 +12,7 @@
 	- **Score**: 8.0
 - **Nationality**: South Korea
 - **Marital status**: Single
+  - **Your Spose's Nationality**: None
 - **Hobbies**: Kickboxing, Badminton, Weight Lifting
 - **Location**: Toronto, ON, Canada
 - **LinkedIn**: https://www.linkedin.com/in/wblee800
