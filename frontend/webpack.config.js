@@ -17,6 +17,13 @@ module.exports = {
       {
         test: /\.css$/, // CSS 파일에 적용
         use: ['style-loader', 'css-loader'], // CSS와 스타일 로더 사용
+      }, {
+        rules: [
+          {
+            test: /\.(jpg|jpeg|png|gif|svg)$/i,
+            type: 'asset/resource', // 이미지 파일을 처리하도록 설정
+          },
+        ],
       },
     ],
   },
