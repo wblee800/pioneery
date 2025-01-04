@@ -45,8 +45,8 @@ module.exports = {
         context: ['/api'],
         target: 'http://127.0.0.1:8002',
         changeOrigin: true,
-        timeout: 5000, // 요청 대기 시간 (ms)
-        proxyTimeout: 5000, // 프록시 대기 시간 (ms)
+        timeout: 20000, // 요청 대기 시간 (ms)
+        proxyTimeout: 20000, // 프록시 대기 시간 (ms)
       }
     ],
   },
