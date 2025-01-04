@@ -24,7 +24,10 @@ body {
 header {
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 main {
@@ -33,7 +36,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 250px; /* Added bottom margin to push footer further down */
+  text-align: center;
+  margin-top: 200px;
 }
 
 h1 {
@@ -47,7 +51,11 @@ footer {
   padding: 10px;
   font-size: 0.9rem;
   color: #888;
-  margin-top: auto; /* Ensures footer stays at the bottom */
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 `;
 
