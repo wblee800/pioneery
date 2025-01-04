@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
-// Global styles using createGlobalStyle
 const GlobalStyle = createGlobalStyle`
 body {
   font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
@@ -18,60 +17,62 @@ body {
 `;
 
 const Container = styled.div`
-width: 90%;
-max-width: 500px;
+width: 90 %;
+max - width: 500px;
 background: #161b22;
 padding: 30px;
-border-radius: 15px;
-box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-text-align: center;
-`;
+border - radius: 15px;
+box - shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+text - align: center;`
+  ;
 
 const Title = styled.h1`
-font-size: 1.8rem;
-margin-bottom: 20px;
+font - size: 1.8rem;
+margin - bottom: 20px;
 `;
 
-const Step = styled.div`
-display: ${(props) => (props.active ? 'block' : 'none')};
+const Step = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'active',
+})`
+  display: ${(props) => (props.active ? 'block' : 'none')};
 `;
 
 const Input = styled.input`
-font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+font - family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans - serif;
 display: block;
 margin: 0 auto 20px auto;
 padding: 10px;
-width: 100%;
-max-width: 400px;
-font-size: 1rem;
+width: 100 %;
+max - width: 400px;
+font - size: 1rem;
 border: 1px solid #30363d;
-border-radius: 8px;
+border - radius: 8px;
 `;
 
 const Select = styled.select`
-font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+font - family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans - serif;
 display: block;
 margin: 0 auto 20px auto;
 padding: 10px;
-width: 100%;
-max-width: 400px;
-font-size: 1rem;
+width: 100 %;
+max - width: 400px;
+font - size: 1rem;
 border: 1px solid #30363d;
-border-radius: 8px;
+border - radius: 8px;
 `;
 
 const Button = styled.button`
-background: linear-gradient(90deg, #7F5AF0, #2CB1FF);
+background: linear - gradient(90deg, #7F5AF0, #2CB1FF);
 color: white;
 border: none;
 cursor: pointer;
 padding: 10px 20px;
-font-size: 1rem;
-border-radius: 8px;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+font - size: 1rem;
+border - radius: 8px;
+transition: transform 0.3s ease, box - shadow 0.3s ease;
 &:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(88, 166, 255, 0.5);
+  box - shadow: 0 8px 20px rgba(88, 166, 255, 0.5);
 }
 `;
 
@@ -80,37 +81,37 @@ position: fixed;
 bottom: 20px;
 right: 20px;
 display: flex;
-align-items: center;
+align - items: center;
 background: #161b22;
 color: white;
 padding: 10px 20px;
-border-radius: 8px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-font-size: 0.9rem;
-z-index: 1000;
+border - radius: 8px;
+box - shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+font - size: 0.9rem;
+z - index: 1000;
 `;
 
 const WarningIcon = styled.div`
-background: linear-gradient(135deg, #7F5AF0, #2CB1FF);
+background: linear - gradient(135deg, #7F5AF0, #2CB1FF);
 width: 30px;
 height: 30px;
-border-radius: 50%;
+border - radius: 50 %;
 display: flex;
-justify-content: center;
-align-items: center;
-margin-right: 10px;
+justify - content: center;
+align - items: center;
+margin - right: 10px;
 `;
 
 const WarningText = styled.div`
-.warning-text {
-  color: rgb(255, 255, 255, 0.5);
+  .warning - text {
+    color: rgb(255, 255, 255, 0.5);
 }
 `;
 
 const Form = () => {
   const navigate = useNavigate();
   const goToSum = () => {
-    navigate('/Sum');
+    navigate('/sum', { state: formData });  // Pass formData to the Sum page
   };
 
   const [step, setStep] = useState(1);
@@ -172,10 +173,7 @@ const Form = () => {
 
   const collectDataAndSubmit = (e) => {
     e.preventDefault();
-    const queryString = Object.keys(formData)
-      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(formData[key])}`)
-      .join('&');
-    goToSum();
+    goToSum();  // Navigate to /sum with formData
   };
 
   return (
@@ -248,7 +246,6 @@ const Form = () => {
               </Select>
               <Button type="button" onClick={() => nextStep(6)}>Next</Button>
             </Step>
-
             <Step active={step === 6}>
               <Title>Provide your LinkedIn and GitHub profiles (optional)</Title>
               <Input type="url" id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleInputChange} placeholder="LinkedIn URL" />
@@ -258,14 +255,6 @@ const Form = () => {
           </div>
         </form>
       </Container>
-
-      <WarningMessage>
-        <WarningIcon>!</WarningIcon>
-        <WarningText>
-          <div><b>Do not leave the browser!</b></div>
-          <div class="warning-text">If you leave the browser, the question will restart.</div>
-        </WarningText>
-      </WarningMessage>
     </>
   );
 };
