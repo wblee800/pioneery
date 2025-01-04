@@ -48,13 +48,26 @@ Content-Type: application/json
   "stream": true
 }
 
+### response example
+#...
+#data: {"content": " registering in the Express Entry pool to increase his chances through programs such as the OINP Tech Draws.\n4. **Language Proficiency:** While his IELTS score is excellent, ensuring it remains valid and up-to-date is vital.\n\nThis analysis is for informational purposes only and does not constitute immigration advice. Consulting with"}
+#
+#data: {"content": " a registered Canadian immigration consultant is strongly recommended for personalized guidance.\n"}
+#
+#data: [DONE]
+
 ### ai job match answer
 POST http://127.0.0.1:8002/api/search/ai/job_match/
 Content-Type: application/json
 
 {
-  "stream": true
+  "stream": false
 }
+
+### response example
+#{
+#  "content": "# Analysis of Wonbin Lee's Job Prospects as a Web Frontend Engineer in Toronto\n\nThis document analyzes Wonbin Lee's profile and assesses his suitability for six listed Web Frontend Engineer positions in Toronto, Canada.  The analysis considers his skills, experience, and areas for potential improvement.\n\n\n## Wonbin Lee's Profile Summary\n\n* **Strong Fundamentals:** Possesses a strong foundation in front-end technologies (HTML, CSS, JavaScript, React).\n* **Experience:** 4 years of experience as a Web Frontend Engineer.\n* **Location:** Currently in Toronto, ON, Canada.\n* **Language Proficiency:** High English proficiency (IELTS 8.0).\n* **Key Skill:** Strong proficiency in React.\n* **Areas for Improvement:**  Needs to strengthen skills in Angular, Vue.js, jQuery, API integration, testing frameworks (like Jest or Mocha), and performance optimization techniques.\n\n\n## Job Opportunity Analysis\n\nThe following is a breakdown of the six job opportunities, categorized by match percentage and highlighting areas where Wonbin's skills align or require improvement:\n\n\n### High Match (Above 85%)\n\n* **1. Front-End Developer (React) at Monzek Consulting (87% Match):**  A strong match due to Wonbin's high proficiency in React.  The main area for improvement is unit testing (Jest or Mocha).\n* **3. Front End Developer at DAC Canada (85% Match):**  Excellent match due to strong React, HTML, and CSS skills.  Focus on improving jQuery skills and performance optimization techniques are recommended.\n* **4. Front-End Developer at Ryan Design International (90% Match):**  A very strong match.  Focus on enhancing email marketing knowledge (MJML or Litmus) and familiarity with collaborative tools (Jira, Trello) would be beneficial.\n\n\n### Moderate Match (70%–85%)\n\n* **5. Front-End Developer at Stacktics (80% Match):**  Good match due to React proficiency.  Strengthening Vue.js skills and understanding of cross-browser compatibility are key.\n* **6. Junior Front-End Software Engineer at DataVisor (80% Match):**  A decent match. The focus should be on improving API integration skills and gaining familiarity with back-end development concepts.\n\n\n### Low Match (Below 70%)\n\n* **2. Front End Developer at Payquad Solutions (70% Match):**  Requires significant improvement in Angular skills to be a competitive candidate.\n\n\n## Overall Recommendations for Wonbin Lee\n\nWonbin Lee has a strong profile and is well-positioned to secure a role as a Web Frontend Engineer in Toronto.  His proficiency in React is a significant asset.  To maximize his chances, he should focus on:\n\n* **Prioritizing High-Match Roles:**  He should prioritize applying for the positions at Monzek Consulting, DAC Canada, and Ryan Design International, where his skills closely align with the requirements.\n* **Targeted Skill Development:**  He should invest time in improving his skills in Angular, Vue.js, and jQuery, as well as in unit testing and performance optimization.  This will significantly broaden his job prospects.\n* **Tailoring Applications:**  He should tailor his resume and cover letter to emphasize the skills and experience most relevant to each specific job description.\n* **Networking:**  Actively networking within the Toronto tech community can lead to additional opportunities.\n\n\nBy focusing on these recommendations, Wonbin Lee can significantly enhance his chances of securing a desirable Web Frontend Engineer position in Toronto.\n"
+#}
 
 ### ai networking answer
 POST http://127.0.0.1:8002/api/search/ai/networking/
