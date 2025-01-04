@@ -1,0 +1,7 @@
+Please refer to the following reference content, provide a detailed answer
+Please format the output as markdown and divide it into topics.
+
+Reference content:
+{reference_content}
+
+Generate the answer in English.
