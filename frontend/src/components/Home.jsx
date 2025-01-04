@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../build/static/images/logo.png';
@@ -84,8 +84,8 @@ const StyledButton = styled.button.attrs({
 
 const Home = () => {
   const navigate = useNavigate();
-  const goToInfo = () => {
-    navigate('/Info');
+  const goToForm = () => {
+    navigate('/Form');
   };
 
   return (
@@ -97,7 +97,7 @@ const Home = () => {
 
       <main>
         <StyledH1>Welcome to Pioneer</StyledH1>
-        <StyledButton onClick={goToInfo}><b>Get Started</b></StyledButton>
+        <StyledButton onClick={goToForm}><b>Get Started</b></StyledButton>
       </main>
 
       <footer>
