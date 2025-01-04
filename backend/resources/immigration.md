@@ -15,8 +15,8 @@
   - **Your spose's nationality**: None
 - **Hobbies**: Kickboxing, Badminton, Weight Lifting
 - **Location**: Toronto, ON, Canada
-- **LinkedIn**: https://www.linkedin.com/in/wblee800
-- **GitHub**: https://www.github.com/wblee800
+- **LinkedIn**: https://www.linkedin.com/in/user-id
+- **GitHub**: https://www.github.com/user-id
 
 ### Work Permit Visa
 **Wonbin Lee** is **Korean** and **24 years old**. **As a **South Korean citizen**, you can **apply for a Working Holiday Visa** if you are between the ages of 18 and 35 (inclusive)**.

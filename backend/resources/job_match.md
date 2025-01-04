@@ -123,7 +123,7 @@
 
 ---
 
-### Summary:
+### **Summary:**
 
 - **High Match (Above 85%)**: 4 positions
 - **Moderate Match (70%–85%)**: 2 positions
