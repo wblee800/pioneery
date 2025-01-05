@@ -32,6 +32,10 @@ ALLOWED_HOSTS = [
     "katechackers.junho85.pe.kr",
     "localhost",
     "127.0.0.1",
+    "::1",
+    "[::1]",
+    "host.docker.internal",
+    "[fdc4:f303:9324::254]",
 ]
 
 # Application definition
