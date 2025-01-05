@@ -31,7 +31,7 @@ const companiesData = [
     rating: 4.8,
     reviews: 156,
     images: ["https://cdn.shopify.com/s/files/1/0070/7032/articles/shopify_20stores.png?v=1729609968&originalWidth=1848&originalHeight=782&width=1800"],
-    description: "캐나다의 대표적인 이커머스 플랫폼 기업"
+    description: "Canada's leading e-commerce platform company"
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const companiesData = [
     rating: 4.2,
     reviews: 89,
     images: ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Open_Text_Corp._head_quarters.jpg/2560px-Open_Text_Corp._head_quarters.jpg"],
-    description: "엔터프라이즈 정보 관리 솔루션 기업"
+    description: "Enterprise Information Management Solutions Company"
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ const companiesData = [
     rating: 3.9,
     reviews: 112,
     images: ["https://prophet.com/wp-content/uploads/2022/11/Hootsuite_Hero.jpg"],
-    description: "소셜 미디어 관리 플랫폼"
+    description: "Social media management platforms"
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ const companiesData = [
     rating: 4.5,
     reviews: 78,
     images: ["https://pixels.d2l.com/spai2/q_lossy+w_2162+to_avif+ret_img/www.d2l.com/wp-content/uploads/2023/11/img-D2L-kitchener-hq2-scaled.jpg"],
-    description: "교육용 소프트웨어 개발 기업"
+    description: "Educational software development company"
   },
   {
     id: 5,
@@ -71,7 +71,7 @@ const companiesData = [
     rating: 4.6,
     reviews: 93,
     images: ["https://assets.lightspeedhq.com/img/cae8fb4f-newsroom.jpg"],
-    description: "POS 및 이커머스 솔루션 제공 기업"
+    description: "POS and eCommerce solution providers"
   }
 ];
 
@@ -125,7 +125,7 @@ const MapViewer = () => {
               onChange={() => setShowHighRated(!showHighRated)}
               className="w-4 h-4"
             />
-            <span>4점 이상만 보기</span>
+            <span><b>View only scores of 4 or higher</b></span>
           </label>
         </div>
 
@@ -157,7 +157,7 @@ const MapViewer = () => {
                     <Star className="w-4 h-4 text-yellow-400" />
                     <span>{infoWindowCompany.rating}</span>
                     <span className="text-sm text-gray-500">
-                      ({infoWindowCompany.reviews} 리뷰)
+                      ({infoWindowCompany.reviews} reviews)
                     </span>
                   </div>
                   <p className="text-sm mt-1">{infoWindowCompany.location}</p>
@@ -172,9 +172,8 @@ const MapViewer = () => {
           {filteredCompanies.map(company => (
             <div
               key={company.id}
-              className={`bg-white rounded-lg shadow cursor-pointer transition-shadow hover:shadow-lg p-4 ${
-                selectedCompany?.id === company.id ? 'ring-2 ring-blue-500' : ''
-              }`}
+              className={`bg-white rounded-lg shadow cursor-pointer transition-shadow hover:shadow-lg p-4 ${selectedCompany?.id === company.id ? 'ring-2 ring-blue-500' : ''
+                }`}
               onClick={() => handleCompanyClick(company)}
             >
               <div className="flex flex-col gap-2">
@@ -191,14 +190,14 @@ const MapViewer = () => {
                     <span className="ml-1">{company.rating}</span>
                   </div>
                   <span className="text-sm text-gray-500">
-                    ({company.reviews} 리뷰)
+                    ({company.reviews} reviews)
                   </span>
                 </div>
 
                 <div className="flex items-center gap-1">
                   <ImageIcon className="w-4 h-4 text-gray-500" />
                   <span className="text-sm text-gray-600">
-                    {company.images.length}장의 사진
+                    {company.images.length} photos
                   </span>
                 </div>
 
@@ -213,7 +212,7 @@ const MapViewer = () => {
         {/* 선택된 회사 상세 정보 */}
         {selectedCompany && (
           <div className="bg-white rounded-lg shadow-lg mt-4 p-4">
-            <h2 className="text-xl font-bold mb-4">{selectedCompany.name} 상세 정보</h2>
+            <h2 className="text-xl font-bold mb-4">{selectedCompany.name} learn more</h2>
             <div className="flex flex-col gap-4">
               <img
                 src={selectedCompany.images[0]}
@@ -222,22 +221,22 @@ const MapViewer = () => {
               />
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h3 className="font-semibold">위치</h3>
+                  <h3 className="font-semibold">Location</h3>
                   <p className="text-gray-600">{selectedCompany.location}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold">평점</h3>
+                  <h3 className="font-semibold">Rating</h3>
                   <div className="flex items-center gap-2">
                     <Star className="w-5 h-5 text-yellow-400" />
                     <span>{selectedCompany.rating}</span>
                     <span className="text-gray-500">
-                      ({selectedCompany.reviews} 리뷰)
+                      ({selectedCompany.reviews} reviews)
                     </span>
                   </div>
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold">설명</h3>
+                <h3 className="font-semibold">Description</h3>
                 <p className="text-gray-600">{selectedCompany.description}</p>
               </div>
             </div>
