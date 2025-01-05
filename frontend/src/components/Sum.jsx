@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -87,53 +87,75 @@ const ComposeButton = styled.button`
   }
 `;
 
-function App() {
-  const generateCharacterByCharacterSummary = () => {
-    const params = new URLSearchParams(window.location.search);
-    const userData = Object.fromEntries(params.entries());
+const SidebarHeadings = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
 
-    const summaryElement = document.getElementById('summary-content');
-    summaryElement.innerText = '';
+const SidebarHeading = styled.li`
+  margin-left: ${({ level }) => `${(level - 1) * 10}px`};
+  cursor: pointer;
+  color: ${({ level }) => (level === 1 ? 'white' : '#ccc')};
+  &:hover {
+    color: white;
+  }
+`;
 
-    const insights = [];
+function Sum() {
+  const [content, setContent] = useState('');
+  const [headings, setHeadings] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-    if (userData.age) {
-      insights.push(`Based on your age (${userData.age}), there are many tailored immigration and job programs.`);
+  const generateHeadings = (markdownContent) => {
+    const headingRegex = /^(#{1,6})\s+(.*)/gm;
+    const matches = [];
+    let match;
+
+    while ((match = headingRegex.exec(markdownContent)) !== null) {
+      const [_, hashes, title] = match;
+      const level = hashes.length;
+      const id = title.toLowerCase().replace(/\s+/g, '-');
+      matches.push({ level, title, id });
     }
 
-    if (userData.job) {
-      insights.push(`Your job as a ${userData.job} has great demand in both Canada and the US.`);
-    }
-
-    if (userData.language && userData.language !== 'none') {
-      insights.push(`Having a ${userData.language} certificate can boost your chances in skilled worker programs.`);
-    }
-
-    if (userData.nationality) {
-      insights.push(`As a citizen of ${userData.nationality}, there are specific agreements and opportunities.`);
-    }
-
-    if (userData.marital) {
-      insights.push(`Your marital status (${userData.marital}) may influence visa or residency applications.`);
-    }
-
-    if (userData.linkedin || userData.github) {
-      insights.push('Having profiles on LinkedIn or GitHub showcases your professional presence.');
-    }
-
-    // Combine elements of an array into a single string with '\n'
-    let fullText = insights.join('\n\n');
-    let currentIndex = 0;
-
-    const interval = setInterval(() => {
-      if (currentIndex < fullText.length) {
-        summaryElement.innerText += fullText[currentIndex]; // Add and output one letter at a time
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 20); // Adjust speed as needed
+    setHeadings(matches);
   };
+
+  const handleHeadingClick = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/search/ai/immigration/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          key1: "value1",
+          key2: "value2",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error while streaming data:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div style={{ display: 'flex' }}>
@@ -144,20 +166,35 @@ function App() {
         <SidebarLink href="#skills">Skills</SidebarLink>
         <SidebarLink href="#summary">Summary</SidebarLink>
         <SidebarLink href="#recommendations">Recommendations</SidebarLink>
+        <h3>Navigation</h3>
+        <SidebarHeadings>
+          {headings.map((heading, index) => (
+            <SidebarHeading
+              key={index}
+              level={heading.level}
+              onClick={() => handleHeadingClick(heading.id)}
+            >
+              {heading.title}
+            </SidebarHeading>
+          ))}
+        </SidebarHeadings>
       </Sidebar>
       <MainContent>
-        <Header>Personalized Summary</Header>
-        <Summary id="summary-content">
-          Connecting to retrieve your personalized insights...
+        <Header>Personalized Insights & Immigration Answer</Header>
+        <Summary>
+          {loading && <p>Loading...</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <div
+            id="content"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </Summary>
         <Compose>
-          <ComposeButton onClick={generateCharacterByCharacterSummary}>
-            Reload Insights
-          </ComposeButton>
+          <ComposeButton onClick={fetchData}>Reload Stream</ComposeButton>
         </Compose>
       </MainContent>
     </div>
   );
 }
 
-export default App;
+export default Sum;
