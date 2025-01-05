@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
     "[::1]",
     "host.docker.internal",
     "[fdc4:f303:9324::254]",
+    "192.168.65.254",
 ]
 
 # Application definition
