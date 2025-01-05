@@ -348,8 +348,7 @@ const Form = () => {
                 name="hobby"
                 value={formData.hobby}
                 onChange={handleInputChange}
-                multiple
-                required>
+                multiple>
                 <option value="" disabled>Select your hobbies</option>
                 <option value="soccer">Soccer</option>
                 <option value="swimming">Swimming</option>
