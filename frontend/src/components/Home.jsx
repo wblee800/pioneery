@@ -37,7 +37,7 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 200px;
+  margin-top: 180px;
 }
 
 h1 {
@@ -61,12 +61,19 @@ footer {
 
 const StyledImg = styled.img`
   width: 200px;
+  margin-top: 120px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const StyledH1 = styled.h1.attrs({
-  className: "background-text",
+  className: "background-text"
 })`
+  font-weight: bold;
   color: rgb(255, 255, 255, 0.2);
+  padding: 0px 0px;
 `
 
 const StyledButton = styled.button.attrs({
@@ -75,9 +82,8 @@ const StyledButton = styled.button.attrs({
   background: linear-gradient(90deg, #7F5AF0, #2CB1FF);
   font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
   color: #FFFFFF;
-  padding: 15px 40px;
+  padding: 14px 40px;
   font-size: 1.2rem;
-  font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
