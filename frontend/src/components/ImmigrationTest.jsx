@@ -43,13 +43,12 @@ const ImmigrationAnswer = () => {
             userInfo: {
               "age": 25,
               "name": "John Doe",
-                "occupation": "Software Engineer",
-                "country": "United States",
-                "education": "Bachelor's Degree",
-                "experience": "5 years",
-                "language": "English",
-                "family": "Single",
-
+              "occupation": "Software Engineer",
+              "country": "United States",
+              "education": "Bachelor's Degree",
+              "experience": "5 years",
+              "language": "English",
+              "family": "Single",
             },
             stream: true
           }),
