@@ -2,7 +2,8 @@
 
 ✨ **Pioneer**: Your guide to shaping opportunities and navigating challenges in studying abroad, immigration, and job hunting across North America.
 
----
+<br>
+<br>
 
 ## 📂 Project Structure
 
@@ -16,7 +17,7 @@
         └── static # Built static files for React
 ```
 
----
+<br>
 
 ## 🚀 Getting Started
 
@@ -61,7 +62,7 @@
    npm start
    ```
 
----
+<br>
 
 ## ⚙️ Initial Setup
 
@@ -95,13 +96,13 @@
    python manage.py migrate
    ```
 
----
+<br>
 
-## ⚙️ Features and Integrations
+## 🤖 Features and Integrations
 
 - **Tavily Integration**:
   - Use Tavily API for location-based insights and immigration-related searches.
 - **Gemini Integration**:
   - Leverage Google Gemini for advanced AI-based recommendations.
 
----
+
