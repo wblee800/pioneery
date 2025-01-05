@@ -1,74 +1,107 @@
-# Test
+# Pioneer
 
-## 프로젝트 구조
+✨ **Pioneer**: Your guide to shaping opportunities and navigating challenges in studying abroad, immigration, and job hunting across North America.
+
+---
+
+## 📂 Project Structure
+
 ```
 .
-├── backend        # Django 백엔드 프로젝트 폴더
-│   ├── board      # 게시판 앱
-│   └── board_api  # 게시판 API 앱
-└── frontend       # React 프론트엔드 프로젝트 폴더
+├── backend        # Django backend project folder
+│   ├── board      # Board app
+│   └── board_api  # Board API app
+└── frontend       # React frontend project folder
     └── build
-        └── static # React 빌드된 정적 파일
+        └── static # Built static files for React
 ```
 
-## 로컬 실행 방법
+---
 
-### backend
-```shell
-python manage.py runserver 0.0.0.0:8002
-```
+## 🚀 Getting Started
 
-* Home: http://127.0.0.1:8002/
-* 게시판: http://127.0.0.1:8002/board
-* 게시판API: http://127.0.0.1:8002/board/api
+### Backend
 
-#### backend/.env_local 설정
-`/backend/.env_local.example` 참고해서 `/backend/.env_local` 파일 만들어서 apikey 등 설정
+1. **Run the server:**
+   ```bash
+   python manage.py runserver 0.0.0.0:8002
+   ```
 
-##### tavily 설정
-https://tavily.com/ 에서 apikey 발급 받고, `/backend/.env_local` 파일에 TAVILY_API_KEY 설정
+2. **Endpoints:**
+   - **Home**: [http://127.0.0.1:8002/](http://127.0.0.1:8002/)
+   - **Board**: [http://127.0.0.1:8002/board](http://127.0.0.1:8002/board)
+   - **Board API**: [http://127.0.0.1:8002/board/api](http://127.0.0.1:8002/board/api)
 
-단순한 tavily 검색 테스트 API
-```
-GET http://127.0.0.1:8002/api/search/?q=캐나다이민
-```
+3. **Environment Variables**:
+   - Create a `.env_local` file in the `backend` directory based on `/backend/.env_local.example`.
+   - Add your API keys and configurations:
+     - **TAVILY_API_KEY**: Obtain from [Tavily](https://tavily.com/).
+     - **GEMINI_API_KEY**: Obtain from [Google AI Studio](https://aistudio.google.com/apikey).
 
-#### gemini 설정
+4. **Tavily Test API**:
+   - Perform a simple search:
+     ```
+     GET http://127.0.0.1:8002/api/search/?q=카나다이민
+     ```
 
-https://aistudio.google.com/apikey 에서 gemini apikey 발급 받고, `/backend/.env_local` 파일에 GEMINI_API_KEY 설정
+### Frontend
 
+1. **Navigate to the frontend folder:**
+   ```bash
+   cd frontend
+   ```
 
-### frontend
-```shell
-cd frontend
-npm install
-npm start
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## 초기 설정 방법
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
 
-### python 설치
-> /.python-version 파일에 명시된 버전으로 설치
-> 3.11.9 버전으로 설치 예시
+---
 
-```shell
-pyenv install 3.11.9
-```
+## ⚙️ Initial Setup
 
-### python 가상환경 설정
-```shell
-python -m venv .venv
-source .venv/bin/activate
-```
+### Python Installation
 
-### 의존성 설치
-```shell
-pip install -r requirements.txt
-```
+1. Install the Python version specified in `/.python-version`:
+   ```bash
+   pyenv install 3.11.9
+   ```
 
-### migration 적용
-모델 변경사항을 감지하고 데이터베이스에 적용할 수 있는 마이그레이션 파일 생성 후 마이그레이션 파일을 실제 데이터베이스에 적용
-```shell
-python manage.py makemigrations
-python manage.py migrate
-```
+2. Set up a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Database Migration
+
+1. Generate migration files:
+   ```bash
+   python manage.py makemigrations
+   ```
+
+2. Apply migrations to the database:
+   ```bash
+   python manage.py migrate
+   ```
+
+---
+
+## ⚙️ Features and Integrations
+
+- **Tavily Integration**:
+  - Use Tavily API for location-based insights and immigration-related searches.
+- **Gemini Integration**:
+  - Leverage Google Gemini for advanced AI-based recommendations.
+
+---
