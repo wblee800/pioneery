@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.js', // 애플리케이션 진입점
@@ -16,7 +17,7 @@ module.exports = {
       },
       {
         test: /\.css$/, // CSS 파일에 적용
-        use: ['style-loader', 'css-loader'], // CSS와 스타일 로더 사용
+        use: ['style-loader', 'css-loader', 'postcss-loader'], // CSS와 스타일 로더 사용
       }, {
         rules: [
           {
@@ -34,6 +35,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './build/static/index.html', // HTML 템플릿 파일
     }),
+    new Dotenv(),
   ],
   devServer: {
     static: './dist', // 정적 파일 제공 경로
