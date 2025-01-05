@@ -119,7 +119,7 @@ const WarningText = styled.div`
 const Form = () => {
   const navigate = useNavigate();
   const goToSum = () => {
-    navigate('/ImmigrationTest', { state: formData });  // Pass formData to the Sum page
+    navigate('/Sum', { state: formData });  // Pass formData to the Sum page
   };
 
   // Warn the user about page refresh
