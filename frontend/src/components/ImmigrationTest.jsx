@@ -39,7 +39,20 @@ const ImmigrationAnswer = () => {
         const response = await fetch('/api/search/ai/immigration/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ stream: true }),
+          body: JSON.stringify({
+            userInfo: {
+              "age": 25,
+              "name": "John Doe",
+                "occupation": "Software Engineer",
+                "country": "United States",
+                "education": "Bachelor's Degree",
+                "experience": "5 years",
+                "language": "English",
+                "family": "Single",
+
+            },
+            stream: true
+          }),
         });
 
         if (!response.ok) throw new Error('Network response was not ok');
