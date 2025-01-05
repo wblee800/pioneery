@@ -1,203 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { marked } from 'marked';
-import styled from 'styled-components';
-
-const AppLayout = styled.main`
-  display: flex;
-  height: 100vh;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f9fafc;
-`;
-
-const Sidebar = styled.aside`
-  width: 20%;
-  background: #f5f5f5;
-  padding: 20px;
-  border-right: 1px solid #ddd;
-  box-shadow: none;
-  margin-right: 0;
-  height: 100%;
-`;
-
-const SidebarNav = styled.ul`
-  list-style: none;
-  padding: 0;
-
-  .sidebar-link {
-    display: block;
-    margin: 10px 0;
-    color: #333;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-
-    &:hover {
-      color: #1d72b8;
-    }
-  }
-`;
-
-const Content = styled.section`
-  flex: 1;
-  padding: 60px;
-  background: linear-gradient(
-    120deg,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 50%,
-    rgba(234, 198, 214, 1) 100%
-  );
-  background-size: 400% 400%;
-  animation: colorShift 20s ease infinite;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  overflow-y: auto;
-  transition: background 0.3s ease;
-
-  @keyframes colorShift {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-`;
-
-const ProfileCard = styled.div`
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease-out;
-  position: relative;
-`;
-
-const ProfileHeader = styled.header`
-  text-align: center;
-
-  h1 {
-    margin: 0;
-    font-size: 1.8rem;
-  }
-
-  .profile-title {
-    margin: 5px 0;
-    color: #6b7280;
-    font-size: 1rem;
-  }
-`;
-
-const ProgressBar = styled.div`
-  height: 10px;
-  background: #e5e7eb;
-  border-radius: 5px;
-  margin: 10px 0;
-
-  .progress {
-    height: 100%;
-    background: #1d72b8;
-    border-radius: 5px;
-  }
-`;
-
-const Skills = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-
-  li {
-    background: #f3f4f6;
-    border-radius: 20px;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    color: #374151;
-  }
-`;
-
-const AnswerSection = styled.div`
-  background: #ffffff;
-  border-radius: 15px; /* Updated rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-
-  h1 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #111827;
-  }
-
-  .loading {
-    color: #6b7280;
-  }
-
-  .error {
-    color: red;
-  }
-
-  .markdown-body {
-    white-space: pre-wrap;
-    font-family: 'Courier New', Courier, monospace;
-  }
-`;
+import { marked } from 'marked'; // Markdown 변환 라이브러리
 
 const ImmigrationAnswer = () => {
-  const [content, setContent] = useState('');
-  const [headings, setHeadings] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const profileCard = document.querySelector('.profile-card');
-
-    const handleMouseMove = (e) => {
-      const { left, top, width, height } = profileCard.getBoundingClientRect();
-      const x = e.clientX - left - width / 2;
-      const y = e.clientY - top - height / 2;
-      const rotateX = (y / height) * 10;
-      const rotateY = -(x / width) * 10;
-      profileCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    };
-
-    const resetTransform = () => {
-      profileCard.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    };
-
-    profileCard.addEventListener('mousemove', handleMouseMove);
-    profileCard.addEventListener('mouseleave', resetTransform);
-
-    return () => {
-      profileCard.removeEventListener('mousemove', handleMouseMove);
-      profileCard.removeEventListener('mouseleave', resetTransform);
-    };
-  }, []);
+  const [content, setContent] = useState(''); // 전체 HTML 응답 내용
+  const [headings, setHeadings] = useState([]); // 목차(헤더) 정보
+  const [loading, setLoading] = useState(false); // 로딩 상태
+  const [error, setError] = useState(null); // 에러 상태
+  const contentRef = useRef(null); // 본문 영역 참조
 
   const generateHeadings = (markdownContent) => {
-    const headingRegex = /^(#{1,6})\s+(.*)/gm;
+    const headingRegex = /^(#{1,6})\s+(.*)/gm; // Markdown 헤딩(# ~ ######) 정규식
     const matches = [];
     let match;
 
     while ((match = headingRegex.exec(markdownContent)) !== null) {
-      const [_, hashes, title] = match;
-      const level = hashes.length;
-      const id = title.toLowerCase().replace(/\s+/g, '-');
+      const [_, hashes, title] = match; // '#' 개수와 제목
+      const level = hashes.length; // 헤더 레벨 (# = 1, ## = 2, ...)
+      const id = title.toLowerCase().replace(/\s+/g, '-'); // id를 생성
       matches.push({ level, title, id });
     }
 
-    setHeadings(matches);
+    setHeadings(matches); // 목차 업데이트
   };
 
   const handleHeadingClick = (id) => {
-    const element = document.getElementById(id);
+    const element = document.getElementById(id); // 해당 id의 요소를 찾음
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' }); // 부드럽게 스크롤 이동
     }
   };
 
@@ -212,16 +41,16 @@ const ImmigrationAnswer = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             userInfo: {
-              age: 25,
-              name: 'John Doe',
-              occupation: 'Software Engineer',
-              country: 'United States',
-              education: "Bachelor's Degree",
-              experience: '5 years',
-              language: 'English',
-              family: 'Single',
+              "age": 25,
+              "name": "John Doe",
+              "occupation": "Software Engineer",
+              "country": "United States",
+              "education": "Bachelor's Degree",
+              "experience": "5 years",
+              "language": "English",
+              "family": "Single",
             },
-            stream: true,
+            stream: true
           }),
         });
 
@@ -233,7 +62,7 @@ const ImmigrationAnswer = () => {
 
         while (true) {
           const { done, value } = await reader.read();
-          if (done) break;
+          if (done) break; // 스트림이 종료되면 반복 종료
 
           const chunk = decoder.decode(value, { stream: true });
 
@@ -250,9 +79,9 @@ const ImmigrationAnswer = () => {
                 const parsed = JSON.parse(data);
                 fullContent += parsed.content;
 
-                generateHeadings(fullContent);
+                generateHeadings(fullContent); // 헤더 생성
                 const htmlContent = marked.parse(fullContent);
-                setContent(htmlContent);
+                setContent(htmlContent); // HTML로 렌더링 업데이트
               } catch (e) {
                 console.error('Error parsing stream chunk:', e);
               }
@@ -268,47 +97,62 @@ const ImmigrationAnswer = () => {
     };
 
     fetchData();
+
+    return () => {
+      // Cleanup if necessary
+    };
   }, []);
 
   return (
-    <AppLayout>
-      <Sidebar>
-        <SidebarNav>
-          <li><a href="#profile" className="sidebar-link">Profile</a></li>
-          <li><a href="#messages" className="sidebar-link">Messages</a></li>
-          <li><a href="#tests" className="sidebar-link">Tests</a></li>
-          <li><a href="#projects" className="sidebar-link">Your projects</a></li>
-        </SidebarNav>
-      </Sidebar>
+    <div style={{ display: 'flex', flexDirection: 'row', height: '100vh' }}>
+      {/* 목차를 사이드바에 렌더링 */}
+      <div
+        style={{
+          width: '20%',
+          padding: '10px',
+          borderRight: '1px solid #ddd',
+          overflowY: 'auto', // 목차 영역만 스크롤 가능
+          position: 'sticky',
+          top: 0, // 목차가 화면에 고정되도록 설정
+          maxHeight: '100vh',
+        }}
+      >
+        <h2>Table of Contents</h2>
+        <ul style={{ listStyleType: 'none', padding: 0 }}>
+          {headings.map((heading, index) => (
+            <li
+              key={index}
+              style={{
+                marginLeft: `${(heading.level - 1) * 10}px`,
+                cursor: 'pointer',
+              }}
+              onClick={() => handleHeadingClick(heading.id)} // 목차 클릭 이벤트
+            >
+              {/* 제목을 HTML로 렌더링 */}
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: marked.parseInline(heading.title),
+                }}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      <Content>
-        <div className="profile-card" style={{ borderRadius: '15px', padding: '20px', background: '#fff', marginBottom: '20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s ease-out' }}>
-          <ProfileHeader>
-            <h1>John Doe</h1>
-            <p className="profile-title">Software Engineer</p>
-          </ProfileHeader>
-          <ProgressBar>
-            <div className="progress" style={{ width: '75%' }}></div>
-          </ProgressBar>
-          <Skills>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>TypeScript</li>
-            <li>TailwindCSS</li>
-          </Skills>
-        </div>
-
-        <AnswerSection>
-          <h1>AI Immigration Answer</h1>
-          {loading && <p className="loading">Loading...</p>}
-          {error && <p className="error">{error}</p>}
-          <div
-            className="markdown-body"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </AnswerSection>
-      </Content>
-    </AppLayout>
+      {/* 본문 컨텐츠 */}
+      <div
+        style={{ width: '80%', padding: '20px', overflowY: 'auto' }}
+        ref={contentRef}
+      >
+        <h1>AI Immigration Answer</h1>
+        {loading && <p>Loading...</p>}
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div
+          style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace' }}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      </div>
+    </div>
   );
 };
 
