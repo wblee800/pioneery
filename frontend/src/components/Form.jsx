@@ -14,10 +14,15 @@ body {
   background: linear-gradient(135deg, #0D1117, #161B22);
   color: #ffffff;
 }
+
+input, select, textarea {
+  color: #000;
+}
+
 `;
 
 const Container = styled.div`
-width: 90%;
+width: 100%;
 max-width: 500px;
 background: #161b22;
 padding: 30px;
@@ -27,6 +32,7 @@ text-align: center;
 `;
 
 const Title = styled.h1`
+font-weight: bold;
 font-size: 1.8rem;
 margin-bottom: 20px;
 `;
