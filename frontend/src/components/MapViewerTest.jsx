@@ -30,7 +30,7 @@ const companiesData = [
     coordinates: { lat: 45.4215, lng: -75.6972 },
     rating: 4.8,
     reviews: 156,
-    images: ["/api/placeholder/400/300"],
+    images: ["https://cdn.shopify.com/s/files/1/0070/7032/articles/shopify_20stores.png?v=1729609968&originalWidth=1848&originalHeight=782&width=1800"],
     description: "캐나다의 대표적인 이커머스 플랫폼 기업"
   },
   {
@@ -40,7 +40,7 @@ const companiesData = [
     coordinates: { lat: 43.4867, lng: -80.5369 },
     rating: 4.2,
     reviews: 89,
-    images: ["/api/placeholder/400/300"],
+    images: ["https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Open_Text_Corp._head_quarters.jpg/2560px-Open_Text_Corp._head_quarters.jpg"],
     description: "엔터프라이즈 정보 관리 솔루션 기업"
   },
   {
@@ -50,7 +50,7 @@ const companiesData = [
     coordinates: { lat: 49.2634, lng: -123.1016 },
     rating: 3.9,
     reviews: 112,
-    images: ["/api/placeholder/400/300"],
+    images: ["https://prophet.com/wp-content/uploads/2022/11/Hootsuite_Hero.jpg"],
     description: "소셜 미디어 관리 플랫폼"
   },
   {
@@ -60,7 +60,7 @@ const companiesData = [
     coordinates: { lat: 43.4516, lng: -80.4925 },
     rating: 4.5,
     reviews: 78,
-    images: ["/api/placeholder/400/300"],
+    images: ["https://pixels.d2l.com/spai2/q_lossy+w_2162+to_avif+ret_img/www.d2l.com/wp-content/uploads/2023/11/img-D2L-kitchener-hq2-scaled.jpg"],
     description: "교육용 소프트웨어 개발 기업"
   },
   {
@@ -70,7 +70,7 @@ const companiesData = [
     coordinates: { lat: 45.5088, lng: -73.5549 },
     rating: 4.6,
     reviews: 93,
-    images: ["/api/placeholder/400/300"],
+    images: ["https://assets.lightspeedhq.com/img/cae8fb4f-newsroom.jpg"],
     description: "POS 및 이커머스 솔루션 제공 기업"
   }
 ];
