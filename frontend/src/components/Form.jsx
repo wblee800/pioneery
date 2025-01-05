@@ -168,15 +168,25 @@ const Form = () => {
         // Add a new hobby to the list
         updatedHobbies.push(value);
       }
+
       setFormData({
         ...formData,
-        hobby: updatedHobbies,
+        hobby: updatedHobbies, // Update hobby list in formData
       });
     } else {
-      setFormData({
+      // Common case: handle normal fields
+      const updatedData = {
         ...formData,
         [name]: value,
-      });
+      };
+
+      // Extra logic for "job" field to get <option> text
+      if (name === 'job') {
+        const selectedText = e.target.options[e.target.selectedIndex].text;
+        updatedData.jobText = selectedText; // Add jobText (innerText of <option>)
+      }
+
+      setFormData(updatedData);
     }
   };
 

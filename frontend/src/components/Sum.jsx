@@ -336,7 +336,7 @@ const Sum = () => {
         <div className="profile-card" style={{ borderRadius: '15px', padding: '20px', background: '#fff', marginBottom: '20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s ease-out' }}>
           <ProfileHeader>
             <h1>{name}</h1>
-            <p className="profile-title">{job}</p>
+            <p className="profile-title">{userInfo.jobText || job}</p>
           </ProfileHeader>
           <ProgressBar>
             <div className="progress" style={{ width: '75%' }}></div>
