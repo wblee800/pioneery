@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import MapViewer from './MapViewerTest';
+import { useLocation } from 'react-router-dom';
 import { marked } from 'marked';
 import styled from 'styled-components';
 
@@ -32,7 +34,8 @@ const SidebarNav = styled.ul`
     transition: color 0.3s;
 
     &:hover {
-      color: #1d72b8;
+      background-color: linear-gradient(90deg, #7F5AF0, #2CB1FF);
+      font: linear-gradient(90deg, #7F5AF0, #2CB1FF)
     }
   }
 `;
@@ -83,6 +86,7 @@ const ProfileHeader = styled.header`
   h1 {
     margin: 0;
     font-size: 1.8rem;
+    font-weight: bold;
   }
 
   .profile-title {
@@ -131,6 +135,8 @@ const AnswerSection = styled.div`
     margin-bottom: 20px;
     font-size: 1.5rem;
     color: #111827;
+    text-align: center;
+    font-weight: bold;
   }
 
   .loading {
@@ -153,6 +159,32 @@ const Sum = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const contentRef = useRef(null);
+
+  const location = useLocation();
+  const [userInfo, setUserInfo] = useState({
+    age: '',
+    name: '',
+    job: '',
+    country: '',
+    education: '',
+    experience: '',
+    language: '',
+    family: '',
+  });
+  useEffect(() => {
+    if (location.state) {
+      setUserInfo(location.state); // Form에서 전달된 데이터를 userInfo에 설정
+    }
+  }, [location.state]);
+
+  const age = userInfo.age;
+  const name = userInfo.name;
+  const job = userInfo.job;
+  const country = userInfo.country;
+  const education = userInfo.education;
+  const experience = userInfo.experience;
+  const language = userInfo.language;
+  const family = userInfo.family;
 
   // Warn the user about page refresh
   useEffect(() => {
@@ -196,6 +228,8 @@ const Sum = () => {
     };
   }, []);
 
+
+
   const generateHeadings = (markdownContent) => {
     const headingRegex = /^(#{1,6})\s+(.*)/gm;
     const matches = [];
@@ -229,14 +263,14 @@ const Sum = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             userInfo: {
-              age: 25,
-              name: 'John Doe',
-              occupation: 'Software Engineer',
-              country: 'United States',
-              education: "Bachelor's Degree",
-              experience: '5 years',
-              language: 'English',
-              family: 'Single',
+              "age": { age },
+              "name": { name },
+              "job": { job },
+              "country": { country },
+              "education": { education },
+              "experience": { experience },
+              "language": { language },
+              "family": { family },
             },
             stream: true,
           }),
@@ -278,7 +312,7 @@ const Sum = () => {
         }
       } catch (err) {
         console.error('Error while streaming data:', err);
-        setError('An error occurred while fetching the data.');
+        setError('An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.An error occurred while fetching the data.');
       } finally {
         setLoading(false);
       }
@@ -291,18 +325,18 @@ const Sum = () => {
     <AppLayout>
       <Sidebar>
         <SidebarNav>
-          <li><a href="#profile" className="sidebar-link">Profile</a></li>
-          <li><a href="#messages" className="sidebar-link">Messages</a></li>
-          <li><a href="#tests" className="sidebar-link">Tests</a></li>
-          <li><a href="#projects" className="sidebar-link">Your projects</a></li>
+          <li><a href="#immigration" className="sidebar-link">Immigration</a></li>
+          <li><a href="#job_match" className="sidebar-link">Job Match</a></li>
+          <li><a href="#social_network" className="sidebar-link">Social Network</a></li>
+          <li><a href="#skills" className="sidebar-link">Skills</a></li>
         </SidebarNav>
       </Sidebar>
 
       <Content>
         <div className="profile-card" style={{ borderRadius: '15px', padding: '20px', background: '#fff', marginBottom: '20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s ease-out' }}>
           <ProfileHeader>
-            <h1>John Doe</h1>
-            <p className="profile-title">Software Engineer</p>
+            <h1>{name}</h1>
+            <p className="profile-title">{job}</p>
           </ProfileHeader>
           <ProgressBar>
             <div className="progress" style={{ width: '75%' }}></div>
@@ -316,13 +350,22 @@ const Sum = () => {
         </div>
 
         <AnswerSection>
-          <h1>AI Immigration Answer</h1>
+          <h1>Summary</h1>
           {loading && <p className="loading">Loading...</p>}
           {error && <p className="error">{error}</p>}
+
+          <h1 id="immigration">Immigrtion</h1>
           <div
             className="markdown-body"
             dangerouslySetInnerHTML={{ __html: content }}
           />
+
+          <h1 id="job_match">Job Match</h1>
+
+          <h1 id="social_network">Social Network</h1>
+
+          <h1 id="skills">Skills</h1>
+          <MapViewer />
         </AnswerSection>
       </Content>
     </AppLayout>
