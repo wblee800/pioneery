@@ -110,6 +110,7 @@ class BaseAnswerView(APIView):
         try:
             # 요청 데이터에서 질문과 스트림 옵션 추출
             stream = request.data.get('stream', False)
+            user_info = request.data.get('userInfo', {})
 
             # 적절한 프롬프트 구성 (유저 정보 포함)
             prompt_file = "backend/resources/prompts/query_prompt.txt"
@@ -117,8 +118,10 @@ class BaseAnswerView(APIView):
                 prompt = file.read()
 
             prompt = prompt.format(
-                reference_content=self.reference_content
+                reference_content=self.reference_content,
+                user_info=json.dumps(user_info, ensure_ascii=False),
             )
+            print(prompt)
 
             if stream:
                 # 스트림 활성화

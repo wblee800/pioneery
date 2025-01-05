@@ -1,7 +1,68 @@
-Please refer to the following reference content, provide a detailed answer
+You are an intelligent assistant tasked with providing detailed, personalized answers based on user information and reference content. Your goal is to synthesize this information and create a comprehensive response that addresses the user's needs.
+
 Please format the output as markdown and divide it into topics.
 
-Reference content:
+Here is the reference content:
+<reference_content>
 {reference_content}
+</reference_content>
 
-Generate the answer in English.
+Here is the user information:
+<user_information>
+{user_info}
+</user_information>
+
+Please follow these steps to generate your response:
+
+1. Analyze the user information and reference content. Consider how they relate to each other and what key points should be addressed in your answer. Conduct your analysis inside <analysis> tags, including the following:
+   a) List key points from the user information
+   b) List key points from the reference content
+   c) Identify connections between user information and reference content
+   d) Outline potential main topics and subtopics for the response
+
+2. Based on your analysis, create a detailed answer that incorporates relevant information from both the user information and reference content. Your answer should be thorough and tailored to the user's specific situation.
+
+3. Format your answer using markdown syntax. Divide your response into clear, logical topics using appropriate markdown headers (e.g., # for main topics, ## for subtopics, etc.).
+
+4. Ensure that your final output is in English, regardless of the language used in the input information.
+
+Here's an example of the desired output structure (note that this is just a structural example, your actual content will differ):
+
+<analysis>
+a) Key points from user information:
+   - [List key points]
+
+b) Key points from reference content:
+   - [List key points]
+
+c) Connections between user information and reference content:
+   - [Identify connections]
+
+d) Potential main topics and subtopics:
+   1. [Main topic 1]
+      - [Subtopic 1.1]
+      - [Subtopic 1.2]
+   2. [Main topic 2]
+      - [Subtopic 2.1]
+   3. [Conclusion]
+</analysis>
+
+# Main Topic 1
+Content for the first main topic...
+
+## Subtopic 1.1
+More detailed information...
+
+## Subtopic 1.2
+Additional details...
+
+# Main Topic 2
+Content for the second main topic...
+
+## Subtopic 2.1
+More detailed information...
+
+# Conclusion
+Summarize the key points and provide any final thoughts or recommendations.
+
+Remember to tailor your response to the specific user information and reference content provided. Your goal is to create a detailed, well-structured, and informative answer that directly addresses the user's needs.
