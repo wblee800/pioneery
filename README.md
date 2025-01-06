@@ -5,6 +5,23 @@
 <br>
 <br>
 
+## 🍽️ Features
+3 Main Features are:
+- 🏠 **Home**: The face of Pioneer
+- ✉️ **Form** : User info page
+- 📜 **Sum** : Provide customized immigration programs, match jobs to your skills, help with social networking, match your skills with North American companies, provide a % indication if your skills are not sufficient, and provide explanations to help you understand the North American job hunting process.
+
+- 🏠
+![home](https://github.com/user-attachments/assets/4f173461-1003-47b1-8491-0712b9e2af14)
+
+- ✉️
+![form](https://github.com/user-attachments/assets/394e9eea-d0f4-43e2-b852-9dc8f70bf487)
+
+- 📜
+![sum](https://github.com/user-attachments/assets/d3c38bb2-1113-4f0d-91ee-3a85176adbfd)
+
+<br>
+
 ## 📂 Project Structure
 
 ```
