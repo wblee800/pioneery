@@ -182,15 +182,6 @@ const Sum = () => {
     }
   }, [location.state]);
 
-  const age = userInfo.age;
-  const name = userInfo.name;
-  const job = userInfo.job;
-  const country = userInfo.country;
-  const education = userInfo.education;
-  const experience = userInfo.experience;
-  const language = userInfo.language;
-  const family = userInfo.family;
-
   // Warn the user about page refresh
   useEffect(() => {
     const handleBeforeUnload = (event) => {
@@ -257,7 +248,13 @@ const Sum = () => {
     }
   };
 
+  // API 호출을 위한 useEffect
   useEffect(() => {
+    // userInfo가 비어있으면 API 호출하지 않음
+    if (!userInfo.name) {
+      return;
+    }
+
     const fetchData = async () => {
       setLoading(true);
       setError(null);
@@ -291,16 +288,7 @@ const Sum = () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              userInfo: {
-                "age": { age },
-                "name": { name },
-                "job": { job },
-                "country": { country },
-                "education": { education },
-                "experience": { experience },
-                "language": { language },
-                "family": { family },
-              },
+              userInfo: userInfo,
               stream: true,
             }),
           });
@@ -349,7 +337,7 @@ const Sum = () => {
     };
 
     fetchData();
-  }, []);
+  }, [userInfo]);
 
   return (
     <AppLayout>
