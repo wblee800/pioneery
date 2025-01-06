@@ -149,7 +149,7 @@ const AnswerSection = styled.div`
 
   .markdown-body {
     white-space: pre-wrap;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Segoe UI',Arial,sans-serif;
   }
 `;
 
