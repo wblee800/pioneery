@@ -154,7 +154,10 @@ const AnswerSection = styled.div`
 `;
 
 const Sum = () => {
-  const [content, setContent] = useState('');
+  const [immigrationContent, setImmigrationContent] = useState('');
+  const [jobMatchContent, setJobMatchContent] = useState('');
+  const [networkingContent, setNetworkingContent] = useState('');
+  const [skillsContent, setSkillsContent] = useState('');
   const [headings, setHeadings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -171,6 +174,8 @@ const Sum = () => {
     language: '',
     family: '',
   });
+
+  // 사용자 정보 가져오기
   useEffect(() => {
     if (location.state) {
       setUserInfo(location.state); // Form에서 전달된 데이터를 userInfo에 설정
@@ -257,58 +262,83 @@ const Sum = () => {
       setLoading(true);
       setError(null);
 
+      const apiCalls = [
+        {
+          key: "immigration",
+          url: "/api/search/ai/immigration/",
+          setContent: setImmigrationContent,
+        },
+        {
+          key: "job_match",
+          url: "/api/search/ai/job_match/",
+          setContent: setJobMatchContent,
+        },
+        {
+          key: "networking",
+          url: "/api/search/ai/networking/",
+          setContent: setNetworkingContent,
+        },
+        {
+          key: "skills",
+          url: "/api/search/ai/skills/",
+          setContent: setSkillsContent,
+        },
+      ];
+
       try {
-        const response = await fetch('/api/search/ai/immigration/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            userInfo: {
-              "age": { age },
-              "name": { name },
-              "job": { job },
-              "country": { country },
-              "education": { education },
-              "experience": { experience },
-              "language": { language },
-              "family": { family },
-            },
-            stream: true,
-          }),
-        });
-
-        if (!response.ok) throw new Error('Network response was not ok');
-
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder('utf-8');
-        let fullContent = '';
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          const chunk = decoder.decode(value, { stream: true });
-
-          chunk.split('\n').forEach((line) => {
-            if (line.startsWith('data:')) {
-              const data = line.replace('data: ', '').trim();
-
-              if (data === '[DONE]') {
-                setLoading(false);
-                return;
-              }
-
-              try {
-                const parsed = JSON.parse(data);
-                fullContent += parsed.content;
-
-                generateHeadings(fullContent);
-                const htmlContent = marked.parse(fullContent);
-                setContent(htmlContent);
-              } catch (e) {
-                console.error('Error parsing stream chunk:', e);
-              }
-            }
+        for (const api of apiCalls) {
+          const response = await fetch(api.url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              userInfo: {
+                "age": { age },
+                "name": { name },
+                "job": { job },
+                "country": { country },
+                "education": { education },
+                "experience": { experience },
+                "language": { language },
+                "family": { family },
+              },
+              stream: true,
+            }),
           });
+
+          if (!response.ok) throw new Error('Network response was not ok');
+
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder('utf-8');
+          let fullContent = '';
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+
+            const chunk = decoder.decode(value, { stream: true });
+
+            chunk.split('\n').forEach((line) => {
+              if (line.startsWith('data:')) {
+                const data = line.replace('data: ', '').trim();
+
+                if (data === '[DONE]') {
+                  setLoading(false);
+                  return;
+                }
+
+                try {
+                  const parsed = JSON.parse(data);
+                  fullContent += parsed.content;
+
+                  generateHeadings(fullContent);
+                  const htmlContent = marked.parse(fullContent);
+                  api.setContent(htmlContent);
+                } catch (e) {
+                  console.error('Error parsing stream chunk:', e);
+                }
+              }
+            });
+          }
         }
       } catch (err) {
         console.error('Error while streaming data:', err);
@@ -335,8 +365,8 @@ const Sum = () => {
       <Content>
         <div className="profile-card" style={{ borderRadius: '15px', padding: '20px', background: '#fff', marginBottom: '20px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', transition: 'transform 0.3s ease-out' }}>
           <ProfileHeader>
-            <h1>{name}</h1>
-            <p className="profile-title">{userInfo.jobText || job}</p>
+            <h1>{userInfo.name}</h1>
+            <p className="profile-title">{userInfo.jobText || userInfo.job}</p>
           </ProfileHeader>
           <ProgressBar>
             <div className="progress" style={{ width: '75%' }}></div>
@@ -354,17 +384,29 @@ const Sum = () => {
           {loading && <p className="loading">Loading...</p>}
           {error && <p className="error">{error}</p>}
 
-          <h1 id="immigration">Immigrtion</h1>
+          <h1 id="immigration">Immigration</h1>
           <div
             className="markdown-body"
-            dangerouslySetInnerHTML={{ __html: content }}
+            dangerouslySetInnerHTML={{ __html: immigrationContent }}
           />
 
           <h1 id="job_match">Job Match</h1>
+          <div
+            className="markdown-body"
+            dangerouslySetInnerHTML={{ __html: jobMatchContent }}
+          />
 
           <h1 id="social_network">Social Network</h1>
+          <div
+            className="markdown-body"
+            dangerouslySetInnerHTML={{ __html: networkingContent }}
+          />
 
           <h1 id="skills">Skills</h1>
+          <div
+            className="markdown-body"
+            dangerouslySetInnerHTML={{ __html: skillsContent }}
+          />
           <MapViewer />
         </AnswerSection>
       </Content>
