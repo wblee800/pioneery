@@ -139,6 +139,12 @@ const AnswerSection = styled.div`
     font-weight: bold;
   }
 
+  h2 {
+    font-size: 1.2rem;
+    color: #111827;
+    font-weight: bold;
+  }
+
   .loading {
     color: #6b7280;
   }
@@ -150,6 +156,17 @@ const AnswerSection = styled.div`
   .markdown-body {
     white-space: pre-wrap;
     font-family: 'Segoe UI',Arial,sans-serif;
+  }
+
+  .markdown-body ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 20px;
+    padding-left: 0;
+  }
+
+  .markdown-body li {
+    margin-bottom: -20px;
   }
 `;
 
