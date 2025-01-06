@@ -401,13 +401,13 @@ const Sum = () => {
             className="markdown-body"
             dangerouslySetInnerHTML={{ __html: networkingContent }}
           />
+          <MapViewer />
 
           <h1 id="skills">Skills</h1>
           <div
             className="markdown-body"
             dangerouslySetInnerHTML={{ __html: skillsContent }}
           />
-          <MapViewer />
         </AnswerSection>
       </Content>
     </AppLayout>
