@@ -114,7 +114,7 @@
 
 <br>
 
-## 🤖 Features and Integrations
+## 🤖 Integrations
 
 - **Tavily Integration**:
   - Use Tavily API for location-based insights and immigration-related searches.
