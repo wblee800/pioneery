@@ -11,11 +11,11 @@
 - ✉️ **Form** : User info page
   ![form](https://github.com/user-attachments/assets/394e9eea-d0f4-43e2-b852-9dc8f70bf487)
 - 📜 **Sum** : A service offering immigration guidance, skill-based job matching, networking support, skill evaluation, and insights into North American job hunting.
-    - Customized immigration programs.
-    - Skill-matching for North American job opportunities.
-    - Social networking assistance.
-    - Feedback on skill gaps with actionable advice.
-    - Educational resources on the North American job hunting process.
+    - **Customized immigration programs.**
+    - **Skill-matching for North American job opportunities.**
+    - **Social networking assistance.**
+    - **Feedback on skill gaps with actionable advice.**
+    - **Educational resources on the North American job hunting process.**
     ![sum](https://github.com/user-attachments/assets/d3c38bb2-1113-4f0d-91ee-3a85176adbfd)
 
 <br></br>
