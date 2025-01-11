@@ -103,6 +103,22 @@
    - **Home**: [http://127.0.0.1:8002/](http://127.0.0.1:8002/)
    - **Search API**: [http://127.0.0.1:8002/api/search](http://127.0.0.1:8002/api/search)
 
+## 🌀 Dockerized Nginx Deployment
+
+1. **Navigate to the docker_nginx folder:**
+    ```bash
+    cd docker_nginx
+    ```
+2. **Build and run the services:**
+    ```bash
+    docker-compose up --build
+    ```
+3. **Access the app at http://localhost**
+4. **Stop the services:**
+   ```bash
+   docker-compose down
+   ```
+
 ## Database Migration
 
 1. Generate migration files:
@@ -141,22 +157,6 @@
 4. **Start the development server:**
    ```bash
    npm start
-   ```
-
-### 🌀 Dockerized Nginx Deployment
-
-1. **Navigate to the docker_nginx folder:**
-    ```bash
-    cd docker_nginx
-    ```
-2. **Build and run the services:**
-    ```bash
-    docker-compose up --build
-    ```
-3. **Access the app at http://localhost**
-4. **Stop the services:**
-   ```bash
-   docker-compose down
    ```
 
 <br></br>
