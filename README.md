@@ -44,7 +44,7 @@
 - **Frontend**: Node.js v18+ and npm installed.
 - **Global**: Docker and Docker Compose installed.
 
-### Backend
+## Backend
 
 ### Python Installation
 
@@ -69,17 +69,8 @@
     - requests~=2.32.3
     - openai~=1.58.1
 
-### Database Migration
+### Run
 
-1. Generate migration files:
-   ```bash
-   python manage.py makemigrations
-   ```
-
-2. Apply migrations to the database:
-   ```bash
-   python manage.py migrate
-   ```
 
 1. **Navigate to the backend folder**:
    ```bash
@@ -112,7 +103,19 @@
    - **Home**: [http://127.0.0.1:8002/](http://127.0.0.1:8002/)
    - **Search API**: [http://127.0.0.1:8002/api/search](http://127.0.0.1:8002/api/search)
 
-### Frontend
+## Database Migration
+
+1. Generate migration files:
+   ```bash
+   python manage.py makemigrations
+   ```
+
+2. Apply migrations to the database:
+   ```bash
+   python manage.py migrate
+   ```
+
+## Frontend
 
 1. **Navigate to the frontend folder:**
    ```bash
