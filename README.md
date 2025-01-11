@@ -25,9 +25,9 @@
 ```
 .
 ├── backend        # Django backend project folder
-│   ├── search_api # Search API app
+│   └── search_api # Search API app
 │
-├── docker_nginx   # Docker NginX folder
+├── docker_nginx   # Docker Nginx folder
 │   └── Dockerfile # Base image is Alpine Linux
 │
 └── frontend       # React frontend project folder
@@ -101,7 +101,7 @@
       ```
    3. Add your API keys and configurations:
      - **TAVILY_API_KEY**: Obtain from [Tavily](https://tavily.com/).
-     - **GEMINI_API_KEY**: Obtain from [Google AI Studio](https://aistudio.google.com/apikey).
+     - **OPENAI_API_KEY**: Obtain from [Google AI Studio](https://aistudio.google.com/apikey).
 
 3. **Run the server:**
    ```bash
@@ -139,7 +139,7 @@
    npm start
    ```
 
-### 🌀 Dockerized Deployment
+### 🌀 Dockerized Nginx Deployment
 
 1. **Navigate to the docker_nginx folder:**
     ```bash
@@ -165,4 +165,3 @@
   - Use Google Gemini 2.0 for advanced AI-based recommendations.
 - **Google Map Platform API**:
   - Use Google Maps API for location-based services.
-
