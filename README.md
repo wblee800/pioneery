@@ -46,12 +46,20 @@
 
 ### Backend
 
-1. **Navigate to the backend folder**:
+### Python Installation
+
+1. **Install the Python version specified in `/.python-version`:**
    ```bash
-   cd backend
+   pyenv install 3.11.9
    ```
 
-2. **Install dependencies**: Installed via requirements.txt:
+2. **Set up a virtual environment:**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
+   ```
+
+3. **Install dependencies**: Installed via requirements.txt:
     ```bash
     pip install -r requirements.txt
     ```
@@ -61,18 +69,46 @@
     - requests~=2.32.3
     - openai~=1.58.1
 
-3. **Set environment variables**:
-   - Create a `.env_local` file in the `backend` directory based on `/backend/.env_local.example`.
-   - Add your API keys and configurations:
+### Database Migration
+
+1. Generate migration files:
+   ```bash
+   python manage.py makemigrations
+   ```
+
+2. Apply migrations to the database:
+   ```bash
+   python manage.py migrate
+   ```
+
+1. **Navigate to the backend folder**:
+   ```bash
+   cd backend
+   ```
+
+2. **Set environment variables**:
+   1. Create a .env file to manage sensitive data and configurations:
+     ```bash
+     cp .env.example .env
+     ```
+   2. Open the .env file and add the following:
+      ```bash
+      # Create an .env_local file using the following as a guide
+      TAVILY_API_KEY=your-api-key-here
+      OPENAI_API_KEY=your-api-key-here
+      OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
+      OPENAI_LLM_MODEL=gemini-2.0-flash-exp
+      ```
+   3. Add your API keys and configurations:
      - **TAVILY_API_KEY**: Obtain from [Tavily](https://tavily.com/).
      - **GEMINI_API_KEY**: Obtain from [Google AI Studio](https://aistudio.google.com/apikey).
 
-4. **Run the server:**
+3. **Run the server:**
    ```bash
    python manage.py runserver 0.0.0.0:8002
    ```
 
-5. **Endpoints:**
+4. **Endpoints:**
    - **Home**: [http://127.0.0.1:8002/](http://127.0.0.1:8002/)
    - **Search API**: [http://127.0.0.1:8002/api/search](http://127.0.0.1:8002/api/search)
 
@@ -89,11 +125,11 @@
    ```
 
 3. **Set environment variables:**
-    - Copy .env.example to .env.
+    1. Copy .env.example to .env.
       ```bash
        cp .env.example .env
        ```
-    - Open .env and replace placeholder values with actual API keys:
+    2. Open .env and replace placeholder values with actual API keys:
       ```bash
       REACT_APP_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
       ```
@@ -117,40 +153,6 @@
 4. **Stop the services:**
    ```bash
    docker-compose down
-   ```
-
-<br></br>
-
-## ⚙️ Initial Setup
-
-### Python Installation
-
-1. Install the Python version specified in `/.python-version`:
-   ```bash
-   pyenv install 3.11.9
-   ```
-
-2. Set up a virtual environment:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Database Migration
-
-1. Generate migration files:
-   ```bash
-   python manage.py makemigrations
-   ```
-
-2. Apply migrations to the database:
-   ```bash
-   python manage.py migrate
    ```
 
 <br></br>
