@@ -128,7 +128,8 @@
     1. Copy .env.example to .env.
       ```bash
        cp .env.example .env
-       ```
+      ```
+      
     2. Open .env and replace placeholder values with actual API keys:
       ```bash
       REACT_APP_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
