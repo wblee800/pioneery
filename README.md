@@ -28,7 +28,7 @@
 │   └── search_api # Search API app
 │
 ├── docker_nginx   # Docker Nginx folder
-│   └── Dockerfile # Base image is Alpine Linux
+│   └── Dockerfile # An OS image
 │
 └── frontend       # React frontend project folder
     └── build
