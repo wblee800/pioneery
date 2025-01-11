@@ -103,7 +103,7 @@
    - **Home**: [http://127.0.0.1:8002/](http://127.0.0.1:8002/)
    - **Search API**: [http://127.0.0.1:8002/api/search](http://127.0.0.1:8002/api/search)
 
-### 🌀 Dockerized Nginx Deployment
+### 🐋 Dockerized Nginx Deployment
 
 1. **Navigate to the docker_nginx folder:**
     ```bash
