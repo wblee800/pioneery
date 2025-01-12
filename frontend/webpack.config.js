@@ -35,6 +35,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './build/static/index.html', // HTML 템플릿 파일
       favicon: './build/static/images/favicon.png', // Favicon 설정 추가
+      historyApiFallback: true, // 브라우저 히스토리 사용
     }),
     new Dotenv(),
   ],
