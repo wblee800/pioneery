@@ -11,11 +11,11 @@
 - ✉️ **Form** : User info page
   ![form](https://github.com/user-attachments/assets/394e9eea-d0f4-43e2-b852-9dc8f70bf487)
 - 📜 **Sum** : A service offering immigration guidance, skill-based job matching, networking support, skill evaluation, and insights into North American job hunting.
-    - **Customized immigration programs.**
-    - **Skill-matching for North American job opportunities.**
-    - **Social networking assistance.**
-    - **Feedback on skill gaps with actionable advice.**
-    - **Educational resources on the North American job hunting process.**
+    > - **Customized immigration programs.**
+    > - **Skill-matching for North American job opportunities.**
+    > - **Social networking assistance.**
+    > - **Feedback on skill gaps with actionable advice.**
+    > - **Educational resources on the North American job hunting process.**
     ![sum](https://github.com/user-attachments/assets/d3c38bb2-1113-4f0d-91ee-3a85176adbfd)
 
 <br></br>
@@ -76,13 +76,12 @@
    ```bash
    cd backend
    ```
-
 2. **Set environment variables**:
-   **1. Create a .env file to manage sensitive data and configurations:**
-     ```bash
-     cp .env.example .env
-     ```
-   **2. Open the .env file and add the following:**
+   1. Create a .env file to manage sensitive data and configurations:
+       ```bash
+       cp .env.example .env
+       ```
+   2. **Open the .env file and add the following:**
       ```bash
       # Create an .env_local file using the following as a guide
       TAVILY_API_KEY=your-api-key-here
@@ -90,9 +89,9 @@
       OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
       OPENAI_LLM_MODEL=gemini-2.0-flash-exp
       ```
-   **3. Add your API keys and configurations:**
-     - **TAVILY_API_KEY**: Obtain from [Tavily](https://tavily.com/).
-     - **OPENAI_API_KEY**: Obtain from [Google AI Studio](https://aistudio.google.com/apikey).
+   3. **Add your API keys and configurations:**
+       - **TAVILY_API_KEY**: Obtain from [Tavily](https://tavily.com/).
+       - **OPENAI_API_KEY**: Obtain from [Google AI Studio](https://aistudio.google.com/apikey).
 
 3. **Run the server:**
    ```bash
@@ -146,12 +145,11 @@
    ```
 
 3. **Set environment variables:**
-    **1. Copy .env.example to .env.**
+    1. **Copy .env.example to .env.**
       ```bash
        cp .env.example .env
       ```
-      
-    **2. Open .env and replace placeholder values with actual API keys:**
+    2. **Open .env and replace placeholder values with actual API keys:**
       ```bash
       REACT_APP_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
       ```
