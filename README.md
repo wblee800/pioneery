@@ -171,3 +171,8 @@
   - Use Google Gemini 2.0 for advanced AI-based recommendations.
 - **Google Map Platform API**:
   - Use Google Maps API for location-based services.
+
+<br></br>
+
+## 📐 Pioneer Architecture
+![pioneer architecture](https://github.com/user-attachments/assets/aa430dc3-8990-42a8-81a5-4e3d6994c926)
