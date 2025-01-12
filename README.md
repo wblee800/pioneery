@@ -175,4 +175,4 @@
 <br></br>
 
 ## 📐 Pioneer Architecture
-![pioneer architecture](https://github.com/user-attachments/assets/aa430dc3-8990-42a8-81a5-4e3d6994c926)
+![image](https://github.com/user-attachments/assets/969540ce-5102-4edb-b7be-516bfee6641a)
