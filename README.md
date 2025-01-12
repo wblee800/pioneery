@@ -3,6 +3,7 @@
 ✨ **Pioneer**: Your polaris to shaping opportunities and navigating challenges in studying abroad, immigration, and job hunting across North America.
 
 <br></br>
+
 <p align="center">
   <a href="https://katechackers.com/">
     <img src="\frontend\build\static\images\demo.png"/>
