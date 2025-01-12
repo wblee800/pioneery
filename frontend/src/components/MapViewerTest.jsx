@@ -56,8 +56,8 @@ const companiesData = [
   {
     id: 4,
     name: "D2L",
-    location: "151 Charles Street West, Kitchener, ON",
-    coordinates: { lat: 43.4516, lng: -80.4925 },
+    location: "137 Glasgow Street Suite 560, Kitchener, ON",
+    coordinates: { lat: 43.4509, lng: -80.5135 },
     rating: 4.5,
     reviews: 78,
     images: ["https://pixels.d2l.com/spai2/q_lossy+w_2162+to_avif+ret_img/www.d2l.com/wp-content/uploads/2023/11/img-D2L-kitchener-hq2-scaled.jpg"],
