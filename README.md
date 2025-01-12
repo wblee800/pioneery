@@ -78,11 +78,11 @@
    ```
 
 2. **Set environment variables**:
-   1. Create a .env file to manage sensitive data and configurations:
+   **1. Create a .env file to manage sensitive data and configurations:**
      ```bash
      cp .env.example .env
      ```
-   2. Open the .env file and add the following:
+   **2. Open the .env file and add the following:**
       ```bash
       # Create an .env_local file using the following as a guide
       TAVILY_API_KEY=your-api-key-here
@@ -90,7 +90,7 @@
       OPENAI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai/
       OPENAI_LLM_MODEL=gemini-2.0-flash-exp
       ```
-   3. Add your API keys and configurations:
+   **3. Add your API keys and configurations:**
      - **TAVILY_API_KEY**: Obtain from [Tavily](https://tavily.com/).
      - **OPENAI_API_KEY**: Obtain from [Google AI Studio](https://aistudio.google.com/apikey).
 
@@ -146,12 +146,12 @@
    ```
 
 3. **Set environment variables:**
-    1. Copy .env.example to .env.
+    **1. Copy .env.example to .env.**
       ```bash
        cp .env.example .env
       ```
       
-    2. Open .env and replace placeholder values with actual API keys:
+    **2. Open .env and replace placeholder values with actual API keys:**
       ```bash
       REACT_APP_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
       ```
