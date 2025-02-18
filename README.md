@@ -13,11 +13,7 @@
 <br></br>
 
 ## 🍽️ Features
-3 Main Features are:
-- 🏠 **Home**: The face of Pioneer
-  ![home](https://github.com/user-attachments/assets/4f173461-1003-47b1-8491-0712b9e2af14)
-- ✉️ **Form** : User info page
-  ![form](https://github.com/user-attachments/assets/394e9eea-d0f4-43e2-b852-9dc8f70bf487)
+Main Features are:
 - 📜 **Sum** : A service offering immigration guidance, skill-based job matching, networking support, skill evaluation, and insights into North American job hunting.
     > - **Customized immigration programs.**
     > - **Skill-matching for North American job opportunities.**
