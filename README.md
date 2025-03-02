@@ -177,5 +177,5 @@ Main Features are:
 
 <br></br>
 
-## 📐 Pioneer Architecture
+## 📐 PioneerX Architecture
 ![image](https://github.com/user-attachments/assets/969540ce-5102-4edb-b7be-516bfee6641a)
