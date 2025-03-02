@@ -1,6 +1,6 @@
-# Pioneer
+# PioneerX
 
-✨ **Pioneer**: Your polaris to shaping opportunities and navigating challenges in studying abroad, immigration, and job hunting across North America.
+✨ **PioneerX**: Your polaris to shaping opportunities and navigating challenges in studying abroad, immigration, and job hunting across North America.
 
 <br></br>
 
