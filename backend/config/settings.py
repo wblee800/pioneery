@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "www.katechackers.com",
     "katechackers.com",
+    "pioneerx.ca",
     "katechackers.junho85.pe.kr",
     "localhost",
     "127.0.0.1",

@@ -45,6 +45,7 @@ module.exports = {
     allowedHosts: [
       'www.katechackers.com',
       'katechackers.com',
+      'pioneerx.ca',
       'katechackers.junho85.pe.kr',
     ],
     port: 3002, // 개발 서버 포트 설정
