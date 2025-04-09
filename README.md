@@ -1,11 +1,11 @@
-# PioneerX
+# Pioneer
 
-✨ **PioneerX**: Your polaris to shaping opportunities and navigating challenges in studying abroad, immigration, and job hunting across North America.
+✨ **Pioneer**: Your polaris to shaping opportunities and navigating challenges in immigration, and job hunting, social networking across North America.
 
 <br></br>
 
 <p align="center">
-  <a href="https://katechackers.com/">
+  <a href="https://pioneery.co/">
     <img src="\frontend\build\static\images\demo.png"/>
   </a>
 </p>
