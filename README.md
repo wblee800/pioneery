@@ -1,6 +1,6 @@
-# Pioneer
+# pioneer
 
-✨ **Pioneer**: Your polaris to shaping opportunities and navigating challenges in immigration, and job hunting, social networking across North America.
+✨ **pioneer**: Your polaris to shaping opportunities and navigating challenges in immigration, and job hunting, social networking across North America.
 
 <br></br>
 
@@ -177,5 +177,5 @@ Main Features are:
 
 <br></br>
 
-## 📐 PioneerX Architecture
+## 📐 pioneerX Architecture
 ![image](https://github.com/user-attachments/assets/969540ce-5102-4edb-b7be-516bfee6641a)
