@@ -1,6 +1,6 @@
 # pioneery
 
-✨ **pioneery**: Your polaris to shaping opportunities and navigating challenges in immigration, and job hunting, social networking across North America.
+✨ **pioneery**: Your polaris for shaping opportunities and navigating challenges in immigration, and job hunting, social networking across North America.
 
 <br></br>
 
