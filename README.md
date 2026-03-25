@@ -20,7 +20,7 @@ Main Features are:
     > - **Social networking assistance.**
     > - **Feedback on skill gaps with actionable advice.**
     > - **Educational resources on the North American job hunting process.**
-    ![flux-2-klein-9b_a_Change_the_age_from_](https://github.com/user-attachments/assets/e5b707e9-700e-4d40-9ee9-eba0c8f7e3de)
+    ![568317366-e5b707e9-700e-4d40-9ee9-eba0c8f7e3de](https://github.com/user-attachments/assets/103f92ab-4b3e-4400-9594-1a23de60fe36)
 
 <br></br>
 
